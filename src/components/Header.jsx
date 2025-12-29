@@ -9,17 +9,19 @@ function Header({ onAvatarClick, onConsultation, onBack }) {
   return (
     <div className="header-block">
       <div className="header-content">
-        {onBack && (
-          <button className="header-back-btn" onClick={onBack}>
-            ← Назад
-          </button>
-        )}
-        <img 
-          src="/images/me.jpg" 
-          alt="Илья Бормотов" 
-          className="header-avatar" 
-          onClick={onAvatarClick}
-        />
+        <div className="header-avatar-wrapper">
+          {onBack && (
+            <button className="header-back-btn" onClick={onBack}>
+              ← Назад
+            </button>
+          )}
+          <img 
+            src="/images/me.jpg" 
+            alt="Илья Бормотов" 
+            className="header-avatar" 
+            onClick={onAvatarClick}
+          />
+        </div>
         <div className="header-name-block">
           <div className="header-name" onClick={onAvatarClick}>Бормотов Илья</div>
           <h1 className="header-title">Архитектор АИЦП</h1>
