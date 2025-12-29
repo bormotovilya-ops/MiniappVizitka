@@ -27,20 +27,22 @@
 }
 
 .header-back-btn {
+  position: absolute;
+  left: 0;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.08));
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.15);
   color: #ffffff;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 600;
-  padding: 6px 12px;
-  border-radius: 8px;
+  padding: 8px 16px;
+  border-radius: 10px;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15), 0 1px 0 rgba(255, 255, 255, 0.1) inset;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(255, 255, 255, 0.1) inset;
+  z-index: 10;
   white-space: nowrap;
-  letter-spacing: 0.2px;
-  flex-shrink: 0;
+  letter-spacing: 0.3px;
 }
 
 .header-back-btn:hover {
@@ -146,9 +148,9 @@
 
 .header-contact-block {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 8px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
   flex-shrink: 0;
   padding: 4px 0;
 }
@@ -233,9 +235,10 @@
   }
 
   .header-back-btn {
-    font-size: 9px;
-    padding: 5px 10px;
-    border-radius: 7px;
+    font-size: 11px;
+    padding: 6px 12px;
+    left: 8px;
+    border-radius: 8px;
   }
 
   .header-avatar {
@@ -264,11 +267,10 @@
   }
 
   .header-contact-block {
-    gap: 6px;
+    gap: 3px;
     min-width: 0;
     flex: 0 1 auto;
     padding: 2px 0;
-    flex-wrap: wrap;
   }
 
   .header-phone {

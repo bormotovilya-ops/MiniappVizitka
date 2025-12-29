@@ -47,44 +47,26 @@ function Profile({ onBack, onAvatarClick }) {
             <h2>Компетенции</h2>
             <div className="skills-grid">
               <div className="skill-card">
-                <div className="skill-image-wrapper">
-                  <img src="/images/1_трафик.png" alt="Системная аналитика" className="skill-image" />
-                </div>
                 <h3>Системная аналитика</h3>
                 <p>18+ лет опыта в анализе и проектировании сложных систем</p>
               </div>
               <div className="skill-card">
-                <div className="skill-image-wrapper">
-                  <img src="/images/4_Прогрев.png" alt="Архитектура воронок" className="skill-image" />
-                </div>
                 <h3>Архитектура воронок</h3>
                 <p>Проектирование автоматизированных цепочек продаж</p>
               </div>
               <div className="skill-card">
-                <div className="skill-image-wrapper">
-                  <img src="/images/2_лендинг.png" alt="Интеграции" className="skill-image" />
-                </div>
                 <h3>Интеграции</h3>
                 <p>Соединение различных систем и платформ</p>
               </div>
               <div className="skill-card">
-                <div className="skill-image-wrapper">
-                  <img src="/images/3_Лидмагнит.png" alt="Telegram-боты" className="skill-image" />
-                </div>
                 <h3>Telegram-боты</h3>
                 <p>Разработка ботов для автоматизации бизнес-процессов</p>
               </div>
               <div className="skill-card">
-                <div className="skill-image-wrapper">
-                  <img src="/images/5_Курс.png" alt="Управление проектами" className="skill-image" />
-                </div>
                 <h3>Управление проектами</h3>
                 <p>Руководство командами, контроль сроков и качества</p>
               </div>
               <div className="skill-card">
-                <div className="skill-image-wrapper">
-                  <img src="/images/6_оплата.png" alt="Бизнес-анализ" className="skill-image" />
-                </div>
                 <h3>Бизнес-анализ</h3>
                 <p>Выявление потребностей и проектирование решений</p>
               </div>
