@@ -13,7 +13,7 @@
   -ms-overflow-style: none;
   height: 100vh;
   padding-bottom: 100px;
-  padding-top: 50px;
+  padding-top: 120px;
 }
 
 .block-detail-container::-webkit-scrollbar {
@@ -198,6 +198,10 @@
 }
 
 @media (max-width: 768px) {
+  .block-detail-container {
+    padding-top: 92px;
+  }
+
   .block-detail-content {
     padding: 20px;
   }
