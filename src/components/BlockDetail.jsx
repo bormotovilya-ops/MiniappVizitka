@@ -73,7 +73,7 @@ function BlockDetail({ block, onBack, onConsultation, onAvatarClick }) {
                 <div className="workflow-tools-title">Инструменты:</div>
                 <div className="workflow-tools-items">
                   <span>Логика условий, теги, аналитика</span>
-                  <span>Рекламные данные (Яндекс.Директ, VK)</span>
+                  <span>Рекламные данные (Я.Директ, VK)</span>
                 </div>
               </div>
             </div>
