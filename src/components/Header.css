@@ -19,7 +19,7 @@
   margin: 0 auto;
   display: flex;
   flex-direction: row;
-  align-items: stretch;
+  align-items: center;
   justify-content: center;
   gap: 16px;
   flex-wrap: wrap;
@@ -114,8 +114,8 @@
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   box-sizing: border-box;
-  align-self: stretch;
   justify-content: center;
+  min-height: 68px;
 }
 
 .header-text {
@@ -183,6 +183,8 @@
   gap: 4px;
   flex-shrink: 0;
   padding: 4px 0;
+  justify-content: center;
+  min-height: 68px;
 }
 
 .header-phone {
@@ -202,6 +204,11 @@
   width: 100%;
   box-sizing: border-box;
   text-align: center;
+  line-height: 1.4;
+  min-height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .header-phone:hover {
@@ -234,6 +241,8 @@
   width: 100%;
   box-sizing: border-box;
   justify-content: center;
+  line-height: 1.4;
+  min-height: 28px;
 }
 
 .telegram-icon {
