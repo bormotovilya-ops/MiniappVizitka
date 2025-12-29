@@ -9,11 +9,6 @@ function Header({ onAvatarClick, onConsultation, onBack }) {
   return (
     <div className="header-block">
       <div className="header-content">
-        {onBack && (
-          <button className="header-back-btn" onClick={onBack}>
-            ← Назад
-          </button>
-        )}
         <img 
           src="/images/me.jpg" 
           alt="Илья Бормотов" 
@@ -25,6 +20,11 @@ function Header({ onAvatarClick, onConsultation, onBack }) {
           <h1 className="header-title">Архитектор АИЦП</h1>
         </div>
         <div className="header-contact-block">
+          {onBack && (
+            <button className="header-back-btn" onClick={onBack}>
+              ← Назад
+            </button>
+          )}
           <a href="tel:+79991237788" className="header-phone" onClick={handlePhoneClick}>
             +7 (999) 123-77-88
           </a>

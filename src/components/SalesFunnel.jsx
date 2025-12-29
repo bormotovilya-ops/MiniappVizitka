@@ -13,7 +13,7 @@ const funnelData = [
     color: '#4a90e2',
     description: 'Ваша целевая аудитория - люди, которые ищут решение своей проблемы',
     tech: [],
-    width: 252 // Самый широкий (180 * 1.4)
+    width: 302 // 252 * 1.2
   },
   {
     id: 'landing',
@@ -22,7 +22,7 @@ const funnelData = [
     color: '#5cb85c',
     description: 'Сайт для привлечения трафика и первичного контакта с аудиторией',
     tech: ['Сайт'],
-    width: 224 // 160 * 1.4
+    width: 269 // 224 * 1.2
   },
   {
     id: 'leadmagnet',
@@ -31,7 +31,7 @@ const funnelData = [
     color: '#f0ad4e',
     description: 'Бесплатное предложение для сбора контактов и начала взаимодействия',
     tech: ['PDF', 'MiniApp', 'Бот', 'Тест', 'Презентация'],
-    width: 196 // 140 * 1.4
+    width: 235 // 196 * 1.2
   },
   {
     id: 'autofunnel',
@@ -40,7 +40,7 @@ const funnelData = [
     color: '#d9534f',
     description: 'Автоматизированная система прогрева лидов перед продажей',
     tech: ['Бот', 'Канал'],
-    width: 168 // 120 * 1.4
+    width: 202 // 168 * 1.2
   },
   {
     id: 'product',
@@ -49,7 +49,7 @@ const funnelData = [
     color: '#5bc0de',
     description: 'Основной продукт - обучающий курс или услуга',
     tech: ['Бот', 'MiniApp', 'GetCourse'],
-    width: 140 // 100 * 1.4
+    width: 168 // 140 * 1.2
   },
   {
     id: 'money',
@@ -58,7 +58,7 @@ const funnelData = [
     color: '#9b59b6',
     description: 'Доход, который получает автор продукта',
     tech: [],
-    width: 126 // 90 * 1.4
+    width: 151 // 126 * 1.2
   },
   {
     id: 'value',
@@ -67,7 +67,7 @@ const funnelData = [
     color: '#16a085',
     description: 'Ценность, которую получает клиент от продукта',
     tech: [],
-    width: 126 // 90 * 1.4
+    width: 151 // 126 * 1.2
   }
 ]
 
