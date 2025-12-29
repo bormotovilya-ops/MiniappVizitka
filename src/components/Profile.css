@@ -14,6 +14,8 @@
   height: 100vh;
   padding-bottom: 100px;
   padding-top: 120px;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 .profile-container::-webkit-scrollbar {
@@ -48,6 +50,7 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 40px 20px;
+  box-sizing: border-box;
 }
 
 .profile-sections {
@@ -62,6 +65,8 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 24px;
   padding: 40px;
+  box-sizing: border-box;
+  width: 100%;
 }
 
 .profile-section h2 {
@@ -137,31 +142,37 @@
   gap: 20px;
 }
 
-@media (max-width: 768px) {
-  .skills-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-  }
-  
-  .skill-card {
-    padding: 15px;
-  }
-  
-  .skill-card h3 {
-    font-size: 16px;
-  }
-  
-  .skill-card p {
-    font-size: 12px;
-  }
-}
-
 .skill-card {
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 16px;
   padding: 25px;
   transition: all 0.3s ease;
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+}
+
+@media (max-width: 768px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  
+  .skill-card {
+    padding: 12px 8px;
+    border-radius: 12px;
+  }
+  
+  .skill-card h3 {
+    font-size: 14px;
+    margin-bottom: 6px;
+  }
+  
+  .skill-card p {
+    font-size: 11px;
+    line-height: 1.4;
+  }
 }
 
 .skill-card:hover {
@@ -175,6 +186,8 @@
   font-size: 18px;
   font-weight: 600;
   margin: 0 0 10px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .skill-card p {
@@ -182,6 +195,8 @@
   font-size: 14px;
   line-height: 1.6;
   margin: 0;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 /* Cases Grid */
@@ -192,38 +207,13 @@
   margin-bottom: 20px;
 }
 
-@media (max-width: 768px) {
-  .cases-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-  }
-  
-  .case-card {
-    padding: 20px 15px;
-  }
-  
-  .case-icon {
-    font-size: 36px;
-    margin-bottom: 10px;
-  }
-  
-  .case-card h3 {
-    font-size: 16px;
-  }
-  
-  .case-card p {
-    font-size: 12px;
-  }
-  
-  .case-link-text {
-    font-size: 12px;
-  }
-}
-
 .case-card-link {
   text-decoration: none;
   color: inherit;
   display: block;
+  width: 100%;
+  box-sizing: border-box;
+  min-width: 0;
 }
 
 .case-card {
@@ -236,6 +226,41 @@
   height: 100%;
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+}
+
+@media (max-width: 768px) {
+  .cases-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  
+  .case-card {
+    padding: 12px 8px;
+    border-radius: 12px;
+  }
+  
+  .case-icon {
+    font-size: 28px;
+    margin-bottom: 6px;
+  }
+  
+  .case-card h3 {
+    font-size: 13px;
+    margin-bottom: 6px;
+  }
+  
+  .case-card p {
+    font-size: 10px;
+    line-height: 1.4;
+    margin-bottom: 8px;
+  }
+  
+  .case-link-text {
+    font-size: 10px;
+  }
 }
 
 .case-card:hover {
@@ -254,6 +279,8 @@
   font-size: 20px;
   font-weight: 600;
   margin: 0 0 10px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .case-card p {
@@ -262,6 +289,8 @@
   line-height: 1.6;
   margin: 0 0 15px;
   flex: 1;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .case-link-text {
@@ -302,29 +331,6 @@
   gap: 20px;
 }
 
-@media (max-width: 768px) {
-  .achievements-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-  }
-  
-  .achievement-card {
-    padding: 20px 15px;
-  }
-  
-  .achievement-number {
-    font-size: 36px;
-  }
-  
-  .achievement-card h3 {
-    font-size: 16px;
-  }
-  
-  .achievement-card p {
-    font-size: 12px;
-  }
-}
-
 .achievement-card {
   background: linear-gradient(135deg, rgba(92, 184, 92, 0.1), rgba(92, 184, 92, 0.05));
   border: 1px solid rgba(92, 184, 92, 0.2);
@@ -332,6 +338,36 @@
   padding: 30px;
   text-align: center;
   transition: all 0.3s ease;
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+}
+
+@media (max-width: 768px) {
+  .achievements-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  
+  .achievement-card {
+    padding: 12px 8px;
+    border-radius: 12px;
+  }
+  
+  .achievement-number {
+    font-size: 28px;
+    margin-bottom: 6px;
+  }
+  
+  .achievement-card h3 {
+    font-size: 13px;
+    margin-bottom: 4px;
+  }
+  
+  .achievement-card p {
+    font-size: 10px;
+    line-height: 1.4;
+  }
 }
 
 .achievement-card:hover {
@@ -351,12 +387,16 @@
   font-size: 18px;
   font-weight: 600;
   margin: 0 0 8px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .achievement-card p {
   color: rgba(255, 255, 255, 0.7);
   font-size: 14px;
   margin: 0;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 /* Approach */
@@ -364,32 +404,6 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
-}
-
-@media (max-width: 768px) {
-  .approach-list {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-  }
-  
-  .approach-item {
-    padding: 15px;
-    flex-direction: column;
-    gap: 10px;
-    text-align: center;
-  }
-  
-  .approach-icon {
-    font-size: 32px;
-  }
-  
-  .approach-item h3 {
-    font-size: 16px;
-  }
-  
-  .approach-item p {
-    font-size: 12px;
-  }
 }
 
 .approach-item {
@@ -401,6 +415,38 @@
   gap: 20px;
   align-items: flex-start;
   transition: all 0.3s ease;
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+}
+
+@media (max-width: 768px) {
+  .approach-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  
+  .approach-item {
+    padding: 12px 8px;
+    flex-direction: column;
+    gap: 6px;
+    text-align: center;
+    border-radius: 12px;
+  }
+  
+  .approach-icon {
+    font-size: 24px;
+  }
+  
+  .approach-item h3 {
+    font-size: 13px;
+    margin-bottom: 4px;
+  }
+  
+  .approach-item p {
+    font-size: 10px;
+    line-height: 1.4;
+  }
 }
 
 .approach-item:hover {
@@ -419,6 +465,8 @@
   font-size: 20px;
   font-weight: 600;
   margin: 0 0 8px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .approach-item p {
@@ -426,6 +474,8 @@
   font-size: 15px;
   line-height: 1.6;
   margin: 0;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 /* Contacts */
@@ -450,6 +500,9 @@
   justify-content: center;
   min-height: 180px;
   height: 100%;
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
 }
 
 .contact-card:hover {
@@ -469,6 +522,8 @@
   font-size: 18px;
   font-weight: 600;
   margin: 0 0 8px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .contact-card p {
@@ -476,6 +531,8 @@
   font-size: 16px;
   font-weight: 500;
   margin: 0 0 5px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .contact-hint {
@@ -556,79 +613,90 @@
   }
 
   .profile-content {
-    padding: 20px 10px;
+    padding: 20px 8px;
   }
 
   .profile-section {
-    padding: 20px 15px;
-  }
-  
-  .profile-section h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    padding-bottom: 15px;
-  }
-
-  .contacts-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-  }
-  
-  .contact-card {
     padding: 15px 10px;
-    min-height: 150px;
-  }
-  
-  .contact-icon {
-    font-size: 32px;
-    margin-bottom: 10px;
-  }
-  
-  .contact-card h3 {
-    font-size: 16px;
-  }
-  
-  .contact-card p {
-    font-size: 14px;
-  }
-  
-  .contact-hint {
-    font-size: 11px;
-  }
-}
-
-@media (max-width: 480px) {
-  .profile-content {
-    padding: 15px 8px;
-  }
-  
-  .profile-section {
-    padding: 15px 10px;
+    border-radius: 16px;
   }
   
   .profile-section h2 {
     font-size: 20px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
   }
-  
+
   .contacts-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 8px;
   }
   
   .contact-card {
-    padding: 12px 8px;
-    min-height: 140px;
+    padding: 12px 6px;
+    min-height: 120px;
+    border-radius: 12px;
   }
   
   .contact-icon {
-    font-size: 28px;
+    font-size: 24px;
+    margin-bottom: 6px;
   }
   
   .contact-card h3 {
-    font-size: 14px;
+    font-size: 13px;
+    margin-bottom: 4px;
   }
   
   .contact-card p {
+    font-size: 11px;
+    margin-bottom: 3px;
+  }
+  
+  .contact-hint {
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-content {
+    padding: 15px 6px;
+  }
+  
+  .profile-section {
+    padding: 12px 8px;
+  }
+  
+  .profile-section h2 {
+    font-size: 18px;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+  }
+  
+  .contacts-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+  }
+  
+  .contact-card {
+    padding: 10px 5px;
+    min-height: 110px;
+  }
+  
+  .contact-icon {
+    font-size: 20px;
+    margin-bottom: 4px;
+  }
+  
+  .contact-card h3 {
     font-size: 12px;
+  }
+  
+  .contact-card p {
+    font-size: 10px;
+  }
+  
+  .contact-hint {
+    font-size: 8px;
   }
 }
