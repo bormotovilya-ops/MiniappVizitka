@@ -22,8 +22,8 @@ function Header({ onAvatarClick, onConsultation, onBack }) {
             onClick={onAvatarClick}
           />
         </div>
-        <div className="header-name-block">
-          <div className="header-name" onClick={onAvatarClick}>Бормотов Илья</div>
+        <div className="header-name-block" onClick={onAvatarClick}>
+          <div className="header-name">Бормотов Илья</div>
           <h1 className="header-title">Архитектор АИЦП</h1>
         </div>
         <div className="header-contact-block">
