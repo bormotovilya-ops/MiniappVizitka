@@ -405,7 +405,9 @@ function BlockDetail({ block, onBack, onConsultation, onAvatarClick }) {
         {selectedTableData && (
           <div className="audience-table-container" ref={tableRef}>
             <h3 className="audience-table-title">{selectedTableData.title}</h3>
-            <table className="audience-table">
+            
+            {/* Десктопная версия - таблица */}
+            <table className="audience-table audience-table-desktop">
               <thead>
                 <tr>
                   {selectedTableData.id === 'traffic' && <th>Источник трафика</th>}
@@ -427,6 +429,59 @@ function BlockDetail({ block, onBack, onConsultation, onAvatarClick }) {
                 ))}
               </tbody>
             </table>
+
+            {/* Мобильная версия - карточки */}
+            <div className="audience-table-cards">
+              {selectedTableData.table.map((row, idx) => {
+                // Определяем поля для карточки
+                const fields = []
+                if (selectedTableData.id === 'traffic' && row.source) {
+                  fields.push({ label: 'Источник трафика', value: row.source, key: 'source' })
+                }
+                fields.push(
+                  { label: 'Что анализируем (наблюдаем)', value: row.what, key: 'what' },
+                  { label: 'Варианты результатов (с критериями)', value: row.results, key: 'results', preLine: true },
+                  { label: 'Что это значит', value: row.meaning, key: 'meaning' },
+                  { label: 'Решение', value: row.decision, key: 'decision', isDecision: true }
+                )
+                
+                // Первые 4 поля в сетке 2x2, остальные - на всю ширину
+                const gridFields = fields.slice(0, 4)
+                const fullWidthFields = fields.slice(4)
+                
+                return (
+                  <div key={idx} className="audience-table-card">
+                    {/* Сетка 2x2 для первых 4 полей */}
+                    <div className="table-card-grid">
+                      {gridFields.map((field) => (
+                        <div key={field.key} className="table-card-field">
+                          <div className="table-card-label">{field.label}</div>
+                          <div 
+                            className={`table-card-value ${field.isDecision ? 'table-card-decision' : ''}`}
+                            style={field.preLine ? { whiteSpace: 'pre-line' } : {}}
+                          >
+                            {field.value}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                    
+                    {/* Остальные поля на всю ширину */}
+                    {fullWidthFields.map((field) => (
+                      <div key={field.key} className="table-card-field table-card-field-full">
+                        <div className="table-card-label">{field.label}</div>
+                        <div 
+                          className={`table-card-value ${field.isDecision ? 'table-card-decision' : ''}`}
+                          style={field.preLine ? { whiteSpace: 'pre-line' } : {}}
+                        >
+                          {field.value}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )
+              })}
+            </div>
             
             {/* Вывод по таблице */}
             {selectedTableData.conclusion && (

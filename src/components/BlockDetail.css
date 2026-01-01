@@ -1410,6 +1410,16 @@
   background: transparent;
 }
 
+/* Десктопная версия таблицы */
+.audience-table-desktop {
+  display: table;
+}
+
+/* Мобильная версия - карточки */
+.audience-table-cards {
+  display: none;
+}
+
 .audience-table thead {
   background: rgba(255, 255, 255, 0.08);
 }
@@ -1713,8 +1723,8 @@
   }
 
   .audience-table-container {
-    padding: 20px;
-    overflow-x: auto;
+    padding: 15px;
+    overflow-x: visible;
   }
 
   .audience-table-title {
@@ -1722,14 +1732,108 @@
     margin-bottom: 20px;
   }
 
-  .audience-table {
-    min-width: 600px;
+  /* Скрываем таблицу на мобильных */
+  .audience-table-desktop {
+    display: none !important;
   }
 
-  .audience-table th,
-  .audience-table td {
-    font-size: 12px;
-    padding: 10px;
+  /* Показываем карточки на мобильных */
+  .audience-table-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .audience-table-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: all 0.3s ease;
+  }
+
+  .audience-table-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Сетка 2x2 для первых 4 полей */
+  .table-card-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    margin-bottom: 8px;
+  }
+
+  .table-card-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  /* Поле на всю ширину */
+  .table-card-field-full {
+    width: 100%;
+    margin-top: 4px;
+  }
+
+  .table-card-label {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+  }
+
+  .table-card-value {
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 14px;
+    line-height: 1.6;
+    word-wrap: break-word;
+    padding-left: 0;
+  }
+
+  .table-card-decision {
+    color: #5cb85c;
+    font-weight: 600;
+    font-size: 15px;
+  }
+
+  /* Разделитель только для полей на всю ширину */
+  .table-card-field-full:not(:last-child) {
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  
+  /* Разделители для полей в сетке */
+  .table-card-grid .table-card-field {
+    padding: 8px;
+  }
+  
+  /* Вертикальный разделитель между столбцами */
+  .table-card-grid .table-card-field:nth-child(odd) {
+    padding-right: 12px;
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  
+  .table-card-grid .table-card-field:nth-child(even) {
+    padding-left: 12px;
+  }
+  
+  /* Горизонтальный разделитель между строками */
+  .table-card-grid .table-card-field:nth-child(-n+2) {
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  
+  .table-card-grid .table-card-field:nth-child(n+3) {
+    padding-top: 12px;
   }
 
 
