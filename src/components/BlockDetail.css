@@ -95,7 +95,7 @@
   display: grid;
   grid-template-columns: 1fr 200px;
   gap: 30px;
-  margin-bottom: 30px;
+  margin-bottom: 0;
   align-items: start;
 }
 
@@ -421,7 +421,7 @@
 .block-detail-sections {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 15px;
 }
 
 .block-detail-section {
@@ -431,6 +431,10 @@
   border-radius: 20px;
   padding: 30px;
   box-sizing: border-box;
+}
+
+.block-detail-section:has(.audience-intro-layout) {
+  padding-bottom: 15px;
 }
 
 .block-detail-section h2 {
@@ -1237,7 +1241,7 @@
 
 /* Стили для вкладок аудитории */
 .audience-diagrams-section {
-  margin-top: 40px;
+  margin-top: 10px;
 }
 
 .audience-tabs {
