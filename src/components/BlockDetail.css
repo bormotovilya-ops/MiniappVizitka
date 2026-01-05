@@ -1449,6 +1449,12 @@
   gap: 15px;
   margin-bottom: 15px;
   align-items: stretch;
+  width: 100%;
+}
+
+.table-card-grid > * {
+  min-width: 0;
+  width: 100%;
 }
 
 .table-card-field {
@@ -1456,6 +1462,9 @@
   flex-direction: column;
   gap: 8px;
   min-height: 100%;
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* Поле на всю ширину */
