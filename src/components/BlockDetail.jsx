@@ -7,7 +7,7 @@ const tableData = {
   // Тестовая аудитория
   'traffic': {
     id: 'traffic',
-    title: 'Таблица 1. Трафик (тестовая аудитория)',
+    title: 'Трафик',
     table: [
       { source: 'Яндекс.Директ', what: 'Поведение на первом экране прелендинга', results: 'Осознанный вход — читает ≥50% экрана, логично продолжает путь\nСлучайный вход — быстрый скролл / выход', meaning: 'Пользователь пришёл с релевантным запросом', decision: '➡️ В приоритет / ↺ Тестировать дальше / ↺ Сменить подачу / ↺ Понизить приоритет / ↺ Усилить креатив / ↺ Прогрев / ⛔ Стоп' },
       { source: 'VK Реклама', what: 'Реакция на основной смысл и формулировку', results: 'Зацепился — отвечает на первый вопрос\nНе зацепился — закрывает', meaning: 'Креатив и сообщение попали в ожидания', decision: '➡️ В приоритет / ↺ Тестировать дальше / ↺ Сменить подачу / ↺ Понизить приоритет / ↺ Усилить креатив / ↺ Прогрев / ⛔ Стоп' },
@@ -21,7 +21,7 @@ const tableData = {
   },
   'prelanding': {
     id: 'prelanding',
-    title: 'Таблица 2. Прелендинг — точка приёма и анализа',
+    title: 'Прелендинг — точка приёма и анализа',
     table: [
       { what: 'Понимание сути предложения', results: 'Сразу понял — отвечает логично и по теме\nНе понял — случайные или формальные ответы', meaning: 'Ясность или размытость формулировок', decision: '↺ Упростить / ↺ Переформулировать / ↺ Усилить смысл / ➡️ Продолжить / ⛔ Отсечь / ↺ Прогрев / ↺ Изменить формат' },
       { what: 'Считываемость смысла', results: 'Сразу понял — отвечает логично и по теме\nНе понял — случайные или формальные ответы', meaning: 'Ясность или размытость формулировок', decision: '↺ Упростить / ↺ Переформулировать / ↺ Усилить смысл / ➡️ Продолжить / ⛔ Отсечь / ↺ Прогрев / ↺ Изменить формат' },
@@ -33,7 +33,7 @@ const tableData = {
   },
   'analysis': {
     id: 'analysis',
-    title: 'Таблица 3. Анализ аудитории (тестовая)',
+    title: 'Анализ аудитории',
     table: [
       { what: 'Осознанность запроса', results: 'Осознанный — чётко формулирует проблему и ожидание результата\nРазмытый — отвечает абстрактно, уходит от сути', meaning: 'Готовность к продукту', decision: '➡️ В приоритет / ↺ Прогрев / ⛔ Оставить / ⛔ Отсечь / ↺ Адаптировать гипотезу / ⛔ Фильтр / ↺ Изменить язык' },
       { what: 'Сформированность проблемы', results: 'Осознанный — чётко формулирует проблему и ожидание результата\nРазмытый — отвечает абстрактно, уходит от сути', meaning: 'Готовность к продукту', decision: '➡️ В приоритет / ↺ Прогрев / ⛔ Оставить / ⛔ Отсечь / ↺ Адаптировать гипотезу / ⛔ Фильтр / ↺ Изменить язык' },
@@ -45,18 +45,18 @@ const tableData = {
   },
   'routing': {
     id: 'routing',
-    title: 'Таблица 4. Маршрутизация (тестовая)',
+    title: 'Маршрутизация',
     table: [
-      { what: 'Поведение по ответам', results: 'Последовательное — логичные выборы\nХаотичное — случайные клики', meaning: 'Тип пользователя', decision: 'Ветка А / Ветка B' },
+      { what: 'Поведение по ответам', results: 'Последовательное — логичные выборы\nХаотичное — случайные клики', meaning: 'Тип пользователя', decision: 'Разные маршруты для разных типов' },
       { what: 'Скорость прохождения', results: 'Ровная — без зависаний\nРваная — паузы, возвраты', meaning: 'Уровень уверенности', decision: 'Упростить / Оставить' },
       { what: 'Реакция на уточнения', results: 'Вовлекается — отвечает подробнее\nСкипает — избегает', meaning: 'Готовность к углублению', decision: 'Углубить / Сократить' },
-      { what: 'Самоотсев', results: 'Сам выходит на раннем этапе\nДоходит до конца', meaning: 'Адекватность фильтра', decision: 'Норма / Усилить' }
+      { what: 'Самоотсев', results: 'Сам выходит на раннем этапе\nДоходит до конца', meaning: 'Адекватность фильтра', decision: 'Фильтр работает нормально / Усилить фильтрацию' }
     ],
     conclusion: 'Маршрутизация распределяет пользователей по различным путям в зависимости от их поведения, скорости прохождения и готовности к углублению. Это позволяет оптимизировать путь каждого сегмента и минимизировать потери на этапе анализа.'
   },
   'hypothesis': {
     id: 'hypothesis',
-    title: 'Таблица 5. Вывод по гипотезе',
+    title: 'Вывод по гипотезе',
     table: [
       { what: 'Качество трафика', results: 'Гипотеза подтверждена', meaning: 'Есть / нет рынок', decision: '➡️ Переход к подэтапу «Рабочий»' },
       { what: 'Реакции на прелендинг', results: 'Частично подтверждена', meaning: 'Есть / нет целевая аудитория', decision: '↺ Доработка гипотезы' },
@@ -68,7 +68,7 @@ const tableData = {
   // Рабочая аудитория
   'traffic-confirmed': {
     id: 'traffic-confirmed',
-    title: 'Таблица 6. Подтверждённые источники трафика',
+    title: 'Подтверждённые источники трафика',
     table: [
       { what: 'Стабильность качества', results: 'Повторяемо даёт целевых\nНестабильно', meaning: 'Надёжность канала', decision: 'Масштабировать / Ограничить' },
       { what: 'Стоимость внимания', results: 'Адекватная\nЗавышенная', meaning: 'Экономика входа', decision: 'Оставить / Оптимизировать' },
@@ -79,7 +79,7 @@ const tableData = {
   },
   'segments-confirmed': {
     id: 'segments-confirmed',
-    title: 'Таблица 7. Подтверждённые сегменты аудитории',
+    title: 'Подтверждённые сегменты аудитории',
     table: [
       { what: 'Поведенческое сходство', results: 'Повторы сценариев\nРазброс', meaning: 'Чёткость сегмента', decision: 'Зафиксировать / Укрупнить' },
       { what: 'Ценность сегмента', results: 'Высокий интерес\nСлабая вовлечённость', meaning: 'Потенциал', decision: 'Приоритет / Вторичный' },
@@ -90,7 +90,7 @@ const tableData = {
   },
   'routing-segments': {
     id: 'routing-segments',
-    title: 'Таблица 8. Маршрутизация сегментов (рабочая)',
+    title: 'Маршрутизация сегментов',
     table: [
       { what: 'Соответствие путей', results: 'Сегмент идёт «своим» путём\nПутается', meaning: 'Корректность логики', decision: 'Закрепить / Перепроект' },
       { what: 'Нагрузка на путь', results: 'Проходит без напряжения\nУсталость', meaning: 'Длина маршрута', decision: 'Упростить / Оставить' },
@@ -101,7 +101,7 @@ const tableData = {
   },
   'preparation': {
     id: 'preparation',
-    title: 'Таблица 9. Подготовка к этапу «Лендинг / Воронка»',
+    title: 'Подготовка к этапу «Лендинг / Воронка»',
     table: [
       { what: 'Готовность к продаже', results: 'Запрос сформирован\nЗапрос сырой', meaning: 'Этап зрелости', decision: 'В продажу / Прогрев' },
       { what: 'Ясность УТП', results: 'Чётко считывается\nТребует пояснений', meaning: 'Формулировка', decision: 'Фиксировать / Доработать' },
@@ -402,41 +402,136 @@ function BlockDetail({ block, onBack, onConsultation, onAvatarClick }) {
               const meaningSet = new Set(selectedTableData.table.map(row => row.meaning))
               const meaningValues = mergeSimilar(Array.from(meaningSet), 'meaning')
               
-              // Для decision - объединяем уникальные слова через "/" с эмодзи
+              // Функция для определения типа решения
+              const getPartType = (part) => {
+                const trimmedPart = part.trim()
+                const lowerPart = trimmedPart.toLowerCase()
+                
+                // Красные (отфильтровывают)
+                // Проверяем эмодзи в начале строки
+                if (trimmedPart.startsWith('⛔')) {
+                  return 'danger'
+                }
+                // Проверяем точные совпадения ключевых слов
+                if (/\bстоп\b/i.test(trimmedPart) || 
+                    /\bотсечь\b/i.test(trimmedPart) || 
+                    /\bостановка\b/i.test(trimmedPart) || 
+                    /\bфильтр\b/i.test(trimmedPart) ||
+                    /\bисключить\b/i.test(trimmedPart) ||
+                    /\bограничить\b/i.test(trimmedPart)) {
+                  return 'danger'
+                }
+                // Желтые (требуют доработки)
+                if (trimmedPart.startsWith('↺') || 
+                    /\bтестировать\b/i.test(trimmedPart) || 
+                    /\bсменить\b/i.test(trimmedPart) || 
+                    /\bпонизить\b/i.test(trimmedPart) || 
+                    /\bусилить\b/i.test(trimmedPart) || 
+                    /\bпрогрев\b/i.test(trimmedPart) || 
+                    /\bупростить\b/i.test(trimmedPart) || 
+                    /\bпереформулировать\b/i.test(trimmedPart) || 
+                    /\bадаптировать\b/i.test(trimmedPart) || 
+                    /\bизменить\b/i.test(trimmedPart) ||
+                    /\bдоработка\b/i.test(trimmedPart) ||
+                    /\bоптимизировать\b/i.test(trimmedPart) ||
+                    /\bперепроект\b/i.test(trimmedPart) ||
+                    /\bукрупнить\b/i.test(trimmedPart) ||
+                    /\bсократить\b/i.test(trimmedPart) ||
+                    /\bвыравнивать\b/i.test(trimmedPart) ||
+                    /\bпротестировать\b/i.test(trimmedPart)) {
+                  return 'warning'
+                }
+                // Зеленые (ведут к следующему этапу)
+                if (trimmedPart.startsWith('➡️') || 
+                    /\bприоритет\b/i.test(trimmedPart) || 
+                    /\bпродолжить\b/i.test(trimmedPart) || 
+                    /\bпереход\b/i.test(trimmedPart) ||
+                    /\bмасштабировать\b/i.test(trimmedPart) ||
+                    /\bзакрепить\b/i.test(trimmedPart) ||
+                    /\bфиксировать\b/i.test(trimmedPart) ||
+                    /\bв продажу\b/i.test(trimmedPart) ||
+                    /\bветка а\b/i.test(trimmedPart) ||
+                    /\bветка b\b/i.test(trimmedPart) ||
+                    /\bнорма\b/i.test(trimmedPart) ||
+                    /\bвторичный\b/i.test(trimmedPart) ||
+                    /\bосновной\b/i.test(trimmedPart) ||
+                    /\bмасштаб\b/i.test(trimmedPart) ||
+                    /\bфокус\b/i.test(trimmedPart)) {
+                  return 'success'
+                }
+                return 'warning' // По умолчанию
+              }
+              
+              // Для decision - группируем по цветам: красные, желтые, зеленые
               const decisionSet = new Set(selectedTableData.table.map(row => row.decision))
               const decisionText = (() => {
-                // Извлекаем все слова/фразы из решений с сохранением эмодзи
-                const words = new Set()
+                // Группируем решения по типам
+                const dangerParts = new Set()
+                const warningParts = new Set()
+                const successParts = new Set()
+                
                 decisionSet.forEach(decision => {
                   // Разбиваем по разделителям: /, но сохраняем эмодзи
                   const parts = decision.split(/\s*\/\s*/).map(p => p.trim()).filter(p => p.length > 0)
                   parts.forEach(part => {
                     // Проверяем, есть ли эмодзи в начале
-                    const emojiMatch = part.match(/^([➡️↺⛔])\s*(.+)/)
-                    if (emojiMatch) {
-                      // Сохраняем с эмодзи
-                      words.add(part)
-                    } else {
+                    let partWithEmoji = part
+                    const hasEmoji = part.startsWith('➡️') || part.startsWith('↺') || part.startsWith('⛔') || 
+                                     part.startsWith('➡️ ') || part.startsWith('↺ ') || part.startsWith('⛔ ')
+                    if (!hasEmoji) {
                       // Добавляем эмодзи в зависимости от контекста
-                      let partWithEmoji = part
                       const lowerPart = part.toLowerCase()
-                      if (lowerPart.includes('приоритет') || lowerPart.includes('продолжить') || lowerPart.includes('переход')) {
+                      if (lowerPart.includes('приоритет') || lowerPart.includes('продолжить') || lowerPart.includes('переход') ||
+                          lowerPart.includes('масштабировать') || lowerPart.includes('закрепить') || lowerPart.includes('фиксировать') ||
+                          lowerPart.includes('в продажу') || lowerPart.includes('ветка а') || lowerPart.includes('ветка b') ||
+                          lowerPart.includes('норма') || lowerPart.includes('вторичный') || lowerPart.includes('основной') ||
+                          lowerPart.includes('масштаб') || lowerPart.includes('фокус')) {
                         partWithEmoji = '➡️ ' + part
-                      } else if (lowerPart.includes('стоп') || lowerPart.includes('отсечь') || lowerPart.includes('остановка') || lowerPart.includes('фильтр')) {
+                      } else if (lowerPart.includes('стоп') || lowerPart.includes('отсечь') || lowerPart.includes('остановка') || 
+                                 lowerPart.includes('фильтр') || lowerPart.includes('исключить') || lowerPart.includes('ограничить') ||
+                                 lowerPart.includes('оставить')) {
                         partWithEmoji = '⛔ ' + part
                       } else if (lowerPart.includes('тестировать') || lowerPart.includes('сменить') || lowerPart.includes('понизить') || 
                                  lowerPart.includes('усилить') || lowerPart.includes('прогрев') || lowerPart.includes('упростить') || 
                                  lowerPart.includes('переформулировать') || lowerPart.includes('адаптировать') || lowerPart.includes('изменить') ||
-                                 lowerPart.includes('доработка')) {
+                                 lowerPart.includes('доработка') || lowerPart.includes('оптимизировать') || lowerPart.includes('перепроект') ||
+                                 lowerPart.includes('укрупнить') || lowerPart.includes('сократить') || lowerPart.includes('выравнивать') ||
+                                 lowerPart.includes('протестировать')) {
                         partWithEmoji = '↺ ' + part
                       }
-                      words.add(partWithEmoji)
+                    }
+                    
+                    // Определяем тип и добавляем в соответствующую группу
+                    const type = getPartType(partWithEmoji)
+                    if (type === 'danger') {
+                      dangerParts.add(partWithEmoji)
+                    } else if (type === 'warning') {
+                      warningParts.add(partWithEmoji)
+                    } else {
+                      successParts.add(partWithEmoji)
                     }
                   })
                 })
-                // Сортируем и объединяем через "/"
-                return Array.from(words).sort().join(' / ')
+                
+                // Возвращаем группы отдельно для отображения разными цветами
+                return {
+                  danger: dangerParts.size > 0 ? Array.from(dangerParts).sort().join(' / ') : null,
+                  warning: warningParts.size > 0 ? Array.from(warningParts).sort().join(' / ') : null,
+                  success: successParts.size > 0 ? Array.from(successParts).sort().join(' / ') : null
+                }
               })()
+              
+              // Формируем массив строк решений с типами для отображения
+              const decisionLines = []
+              if (decisionText.danger) {
+                decisionLines.push({ text: decisionText.danger, type: 'danger' })
+              }
+              if (decisionText.warning) {
+                decisionLines.push({ text: decisionText.warning, type: 'warning' })
+              }
+              if (decisionText.success) {
+                decisionLines.push({ text: decisionText.success, type: 'success' })
+              }
               
               // Формируем поля с правильными заголовками в зависимости от типа таблицы
               const fields = []
@@ -490,6 +585,40 @@ function BlockDetail({ block, onBack, onConsultation, onAvatarClick }) {
                 }
               )
               
+              // Функция для определения типа решения (green, yellow, red)
+              // Приоритет: зеленый > желтый > красный (продвижение важнее остановки)
+              const getDecisionType = (text) => {
+                if (!text || text.trim().length === 0) {
+                  return 'warning'
+                }
+                
+                const trimmedText = text.trim()
+                
+                // Проверяем наличие всех типов эмодзи в тексте
+                const hasDanger = trimmedText.includes('⛔')
+                const hasWarning = trimmedText.includes('↺')
+                const hasSuccess = trimmedText.includes('➡️')
+                
+                // Приоритет: зеленый (продвижение) > желтый (доработка) > красный (стоп)
+                // Если есть зеленые решения, используем зеленый цвет
+                if (hasSuccess) {
+                  return 'success'
+                }
+                // Если есть желтые решения, используем желтый цвет
+                if (hasWarning) {
+                  return 'warning'
+                }
+                // Если есть только красные решения, используем красный цвет
+                if (hasDanger) {
+                  return 'danger'
+                }
+                
+                // Если нет эмодзи, проверяем через getPartType
+                const firstPart = trimmedText.substring(0, 100)
+                const type = getPartType(firstPart)
+                return type
+              }
+              
               // Для карточек с 5 полями (с source) - первые 4 в сетке, решение отдельно
               // Для карточек с 4 полями (без source) - все 4 в сетке, решение в правом нижнем углу
               const isFourFields = !hasSource
@@ -516,11 +645,17 @@ function BlockDetail({ block, onBack, onConsultation, onAvatarClick }) {
                           >
                             <div className="table-card-label">{field.label}</div>
                             <div 
-                              className={field.isDecision ? "table-card-value table-card-decision" : "table-card-value"}
+                              className={field.isDecision ? "table-card-value" : "table-card-value"}
                               style={field.preLine ? { whiteSpace: 'pre-line' } : {}}
                             >
                               {field.isDecision ? (
-                                decisionText
+                                <div className="decision-lines">
+                                  {decisionLines.map((line, idx) => (
+                                    <div key={idx} className={`table-card-decision table-card-decision-${line.type}`}>
+                                      {line.text}
+                                    </div>
+                                  ))}
+                                </div>
                               ) : (
                                 <ul className="table-card-list">
                                   {field.values.map((value, idx) => (
@@ -561,11 +696,17 @@ function BlockDetail({ block, onBack, onConsultation, onAvatarClick }) {
                         ))}
                       </div>
                       
-                      {/* Поле "Решение" на всю ширину - сплошной текст */}
+                      {/* Поле "Решение" на всю ширину - разбито на строки по цветам */}
                       <div className="table-card-field table-card-field-full table-card-decision-field">
                         <div className="table-card-label">Решение</div>
-                        <div className="table-card-value table-card-decision">
-                          {decisionText}
+                        <div className="table-card-value">
+                          <div className="decision-lines">
+                            {decisionLines.map((line, idx) => (
+                              <div key={idx} className={`table-card-decision table-card-decision-${line.type}`}>
+                                {line.text}
+                              </div>
+                            ))}
+                          </div>
                         </div>
                       </div>
                     </div>
