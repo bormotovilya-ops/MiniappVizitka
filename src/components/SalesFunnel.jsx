@@ -3,6 +3,7 @@ import Portfolio from './Portfolio'
 import Profile from './Profile'
 import BlockDetail from './BlockDetail'
 import Header from './Header'
+import Diagnostics from './Diagnostics'
 import './SalesFunnel.css'
 
 const funnelData = [
@@ -76,6 +77,7 @@ function SalesFunnel() {
   const [isAnimating, setIsAnimating] = useState(false)
   const [showPortfolio, setShowPortfolio] = useState(false)
   const [showProfile, setShowProfile] = useState(false)
+  const [showDiagnostics, setShowDiagnostics] = useState(false)
 
   const handleBlockClick = (block) => {
     if (isAnimating) return
@@ -101,11 +103,20 @@ function SalesFunnel() {
   }
 
   const handleConsultation = () => {
-    window.open('https://t.me/ilyaborm', '_blank')
+    setShowDiagnostics(true)
   }
 
   const handleAvatarClick = () => {
     setShowProfile(true)
+  }
+
+  if (showDiagnostics) {
+    return (
+      <Diagnostics 
+        onBack={() => setShowDiagnostics(false)} 
+        onAvatarClick={handleAvatarClick}
+      />
+    )
   }
 
   if (showProfile) {

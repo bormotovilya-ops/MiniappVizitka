@@ -1,0 +1,577 @@
+.diagnostics-container {
+  width: 100%;
+  min-height: 100vh;
+  padding: 0;
+  background-image: 
+    url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='grid' width='100' height='100' patternUnits='userSpaceOnUse'%3E%3Cpath d='M 100 0 L 0 0 0 100' fill='none' stroke='rgba(255,255,255,0.08)' stroke-width='1'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100' height='100' fill='url(%23grid)'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='circuit' width='200' height='200' patternUnits='userSpaceOnUse'%3E%3Ccircle cx='25' cy='25' r='2' fill='rgba(92,184,92,0.1)'/%3E%3Ccircle cx='175' cy='175' r='2' fill='rgba(74,144,226,0.1)'/%3E%3Cpath d='M 50 50 L 150 50 L 150 150 L 50 150 Z' fill='none' stroke='rgba(255,255,255,0.03)' stroke-width='1'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='200' height='200' fill='url(%23circuit)'/%3E%3C/svg%3E"),
+    radial-gradient(circle at 20% 30%, rgba(92, 184, 92, 0.1), transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(74, 144, 226, 0.1), transparent 50%),
+    linear-gradient(180deg, #0a0a0f, #0c0c14);
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.diagnostics-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Вводный экран */
+.diagnostics-intro {
+  width: 100%;
+  min-height: calc(100vh - 120px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 20px 40px;
+}
+
+.diagnostics-intro-content {
+  max-width: 800px;
+  text-align: center;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.diagnostics-intro-title {
+  color: #ffffff;
+  font-size: 42px;
+  font-weight: 700;
+  margin: 0 0 24px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  line-height: 1.2;
+  background: linear-gradient(135deg, #ffffff, rgba(255, 255, 255, 0.85));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.diagnostics-intro-subtitle {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 18px;
+  line-height: 1.6;
+  margin: 0 0 40px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.diagnostics-start-btn {
+  background: linear-gradient(135deg, #5cb85c 0%, #4a9e4a 50%, #5cb85c 100%);
+  background-size: 200% 200%;
+  border: none;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 16px 48px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 20px rgba(92, 184, 92, 0.4), 0 1px 0 rgba(255, 255, 255, 0.15) inset;
+  letter-spacing: 0.3px;
+  position: relative;
+  overflow: hidden;
+}
+
+.diagnostics-start-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.diagnostics-start-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 28px rgba(92, 184, 92, 0.5), 0 1px 0 rgba(255, 255, 255, 0.2) inset;
+  background-position: 100% 0;
+}
+
+.diagnostics-start-btn:hover::before {
+  left: 100%;
+}
+
+.diagnostics-start-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 12px rgba(92, 184, 92, 0.3);
+}
+
+/* Экран вопроса */
+.diagnostics-question {
+  width: 100%;
+  min-height: calc(100vh - 120px);
+  padding: 120px 20px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.diagnostics-progress {
+  width: 100%;
+  max-width: 800px;
+  margin-bottom: 40px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #5cb85c, #4a9e4a);
+  border-radius: 3px;
+  transition: width 0.4s ease;
+  box-shadow: 0 0 10px rgba(92, 184, 92, 0.5);
+}
+
+.progress-text {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.question-content {
+  width: 100%;
+  max-width: 800px;
+  animation: fadeInUp 0.5s ease-out;
+}
+
+.question-stage {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 32px;
+  padding: 16px 24px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.08));
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.question-stage-image {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.question-stage-name {
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.question-text {
+  color: #ffffff;
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.4;
+  margin: 0 0 40px;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.answer-options {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.answer-option {
+  width: 100%;
+  padding: 24px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  backdrop-filter: blur(20px);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-align: left;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.answer-option:hover {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.1));
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateX(8px);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.3);
+}
+
+.answer-option.selected {
+  background: linear-gradient(135deg, rgba(92, 184, 92, 0.25), rgba(74, 158, 74, 0.2));
+  border-color: #5cb85c;
+  box-shadow: 0 6px 24px rgba(92, 184, 92, 0.4), 0 0 0 2px rgba(92, 184, 92, 0.2);
+  transform: translateX(8px);
+}
+
+.answer-option-label {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.answer-option-description {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Экран результатов */
+.diagnostics-results {
+  width: 100%;
+  min-height: calc(100vh - 120px);
+  padding: 120px 20px 40px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.diagnostics-results-content {
+  width: 100%;
+  max-width: 1000px;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.diagnostics-results-title {
+  color: #ffffff;
+  font-size: 42px;
+  font-weight: 700;
+  margin: 0 0 48px;
+  text-align: center;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  background: linear-gradient(135deg, #ffffff, rgba(255, 255, 255, 0.85));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.funnel-visualization {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.funnel-stage-result {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.08));
+  backdrop-filter: blur(20px);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.funnel-stage-result:hover {
+  transform: translateX(8px);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.3);
+}
+
+.funnel-stage-result.critical {
+  border-color: rgba(217, 83, 79, 0.5);
+}
+
+.funnel-stage-result.unstable {
+  border-color: rgba(240, 173, 78, 0.5);
+}
+
+.funnel-stage-result.strong {
+  border-color: rgba(92, 184, 92, 0.5);
+}
+
+.funnel-stage-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 16px;
+}
+
+.funnel-stage-image {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  flex-shrink: 0;
+}
+
+.funnel-stage-info {
+  flex: 1;
+}
+
+.funnel-stage-name {
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0 0 8px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.funnel-stage-score {
+  font-size: 18px;
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.funnel-stage-bar {
+  width: 100%;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.funnel-stage-bar-fill {
+  height: 100%;
+  border-radius: 6px;
+  transition: width 0.8s ease;
+  box-shadow: 0 0 12px rgba(92, 184, 92, 0.5);
+}
+
+.funnel-stage-recommendation {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.diagnostics-analysis {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 32px;
+  padding: 24px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.analysis-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.analysis-icon {
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.analysis-text {
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.analysis-text strong {
+  font-weight: 600;
+}
+
+.diagnostics-conclusion {
+  padding: 24px;
+  background: linear-gradient(135deg, rgba(92, 184, 92, 0.15), rgba(74, 158, 74, 0.1));
+  backdrop-filter: blur(20px);
+  border: 2px solid rgba(92, 184, 92, 0.3);
+  border-radius: 16px;
+  margin-bottom: 32px;
+  box-shadow: 0 4px 16px rgba(92, 184, 92, 0.2);
+}
+
+.conclusion-text {
+  color: #ffffff;
+  font-size: 18px;
+  line-height: 1.6;
+  margin: 0;
+  text-align: center;
+  font-weight: 500;
+}
+
+.diagnostics-consultation {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.diagnostics-consultation-btn {
+  background: linear-gradient(135deg, #5cb85c 0%, #4a9e4a 50%, #5cb85c 100%);
+  background-size: 200% 200%;
+  border: none;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 16px 48px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 20px rgba(92, 184, 92, 0.4), 0 1px 0 rgba(255, 255, 255, 0.15) inset;
+  letter-spacing: 0.3px;
+  position: relative;
+  overflow: hidden;
+}
+
+.diagnostics-consultation-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.diagnostics-consultation-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 28px rgba(92, 184, 92, 0.5), 0 1px 0 rgba(255, 255, 255, 0.2) inset;
+  background-position: 100% 0;
+}
+
+.diagnostics-consultation-btn:hover::before {
+  left: 100%;
+}
+
+.diagnostics-consultation-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 12px rgba(92, 184, 92, 0.3);
+}
+
+/* Анимации */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .diagnostics-intro {
+    padding: 100px 16px 32px;
+  }
+
+  .diagnostics-intro-title {
+    font-size: 28px;
+    margin-bottom: 16px;
+  }
+
+  .diagnostics-intro-subtitle {
+    font-size: 16px;
+    margin-bottom: 32px;
+  }
+
+  .diagnostics-start-btn {
+    font-size: 16px;
+    padding: 14px 36px;
+  }
+
+  .diagnostics-question {
+    padding: 100px 16px 32px;
+  }
+
+  .question-stage {
+    flex-direction: column;
+    text-align: center;
+    padding: 16px;
+  }
+
+  .question-stage-image {
+    width: 50px;
+    height: 50px;
+  }
+
+  .question-stage-name {
+    font-size: 20px;
+  }
+
+  .question-text {
+    font-size: 20px;
+    margin-bottom: 32px;
+  }
+
+  .answer-option {
+    padding: 20px;
+  }
+
+  .answer-option-label {
+    font-size: 16px;
+  }
+
+  .answer-option-description {
+    font-size: 13px;
+  }
+
+  .diagnostics-results {
+    padding: 100px 16px 32px;
+  }
+
+  .diagnostics-results-title {
+    font-size: 28px;
+    margin-bottom: 32px;
+  }
+
+  .funnel-stage-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+
+  .funnel-stage-image {
+    width: 60px;
+    height: 60px;
+  }
+
+  .funnel-stage-name {
+    font-size: 20px;
+  }
+
+  .funnel-stage-score {
+    font-size: 16px;
+  }
+
+  .funnel-stage-recommendation {
+    font-size: 14px;
+  }
+
+  .analysis-text {
+    font-size: 14px;
+  }
+
+  .conclusion-text {
+    font-size: 16px;
+  }
+
+  .diagnostics-consultation-btn {
+    font-size: 16px;
+    padding: 14px 36px;
+    width: 100%;
+  }
+}
+
