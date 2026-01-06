@@ -133,6 +133,7 @@
   overflow: hidden;
   overflow-x: hidden;
   box-sizing: border-box;
+  margin: 0;
 }
 
 .diagnostics-progress {
@@ -178,6 +179,8 @@
   overflow: hidden;
   overflow-x: hidden;
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 .question-stage {
@@ -228,7 +231,8 @@
   flex: 1;
   overflow-y: visible;
   overflow-x: hidden;
-  padding-right: 0;
+  padding: 0;
+  margin: 0;
   min-height: 0;
   width: 100%;
   max-width: 100%;
@@ -250,20 +254,19 @@
   flex-shrink: 0;
   box-sizing: border-box;
   position: relative;
+  margin: 0;
 }
 
 .answer-option:hover {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.1));
-  border-color: rgba(255, 255, 255, 0.25);
-  transform: scale(1.02);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.12));
+  border-color: rgba(255, 255, 255, 0.3);
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.3);
 }
 
 .answer-option.selected {
-  background: linear-gradient(135deg, rgba(92, 184, 92, 0.25), rgba(74, 158, 74, 0.2));
+  background: linear-gradient(135deg, rgba(92, 184, 92, 0.3), rgba(74, 158, 74, 0.25));
   border-color: #5cb85c;
-  box-shadow: 0 6px 24px rgba(92, 184, 92, 0.4), 0 0 0 2px rgba(92, 184, 92, 0.2);
-  transform: scale(1.02);
+  box-shadow: 0 6px 24px rgba(92, 184, 92, 0.5), 0 0 0 2px rgba(92, 184, 92, 0.3);
 }
 
 .answer-option-label {
@@ -546,6 +549,17 @@
     padding: 80px 12px 12px;
     height: calc(100vh - 80px);
     max-height: calc(100vh - 80px);
+    margin: 0;
+  }
+  
+  .question-content {
+    padding: 0;
+    margin: 0;
+  }
+  
+  .answer-options {
+    padding: 0;
+    margin: 0;
   }
 
   .diagnostics-progress {
@@ -587,11 +601,12 @@
     padding: 12px 14px;
     max-width: 100%;
     box-sizing: border-box;
+    margin: 0;
   }
   
   .answer-option:hover,
   .answer-option.selected {
-    transform: scale(1.01);
+    transform: none;
   }
 
   .answer-option-label {
