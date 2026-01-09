@@ -5,6 +5,8 @@ import './Profile.css'
 function Profile({ onBack, onAvatarClick, onDiagnostics }) {
   const [typingMessages, setTypingMessages] = useState([false, false, false]) // Показывать многоточие
   const [visibleMessages, setVisibleMessages] = useState([false, false, false]) // Показывать текст
+  const [expandedCases, setExpandedCases] = useState([false, false, false]) // Раскрытые кейсы
+  const [expandedTechStack, setExpandedTechStack] = useState([false, false, false, false]) // Раскрытый технологический стек
   
   const handleConsultation = () => {
     if (onDiagnostics) {
@@ -21,6 +23,18 @@ function Profile({ onBack, onAvatarClick, onDiagnostics }) {
     } else {
       onBack()
     }
+  }
+
+  const toggleCase = (index) => {
+    const newExpanded = [...expandedCases]
+    newExpanded[index] = !newExpanded[index]
+    setExpandedCases(newExpanded)
+  }
+
+  const toggleTechStack = (index) => {
+    const newExpanded = [...expandedTechStack]
+    newExpanded[index] = !newExpanded[index]
+    setExpandedTechStack(newExpanded)
   }
 
   useEffect(() => {
@@ -122,17 +136,21 @@ function Profile({ onBack, onAvatarClick, onDiagnostics }) {
             <h2>Кейсы</h2>
             <div className="cases-cards-grid">
               {/* Карточка 1: Инфобизнес и EdTech */}
-              <div className="case-main-card">
-                <div className="case-main-card-image">
+              <div className={`case-main-card ${expandedCases[0] ? 'expanded' : ''}`}>
+                <div className="case-main-card-image" onClick={() => toggleCase(0)}>
                   <img src="/images/1.png" alt="Инфобизнес и EdTech" />
                 </div>
-                <h3 className="case-main-card-title">Инфобизнес и EdTech</h3>
-                <p className="case-main-card-description">
-                  Комплексная автоматизация обучения: от продающих лендингов до настройки GetCourse и ботов-помощников.
-                </p>
-                <div className="case-main-card-links">
-                  <div className="case-link-group">
-                    <strong>Лендинги на GetCourse:</strong>
+                <div className="case-main-card-header" onClick={() => toggleCase(0)}>
+                  <h3 className="case-main-card-title">Инфобизнес и EdTech</h3>
+                  <span className={`case-toggle-icon ${expandedCases[0] ? 'expanded' : ''}`}>▼</span>
+                </div>
+                <div className={`case-main-card-content ${expandedCases[0] ? 'expanded' : ''}`}>
+                  <p className="case-main-card-description">
+                    Комплексная автоматизация обучения: от продающих лендингов до настройки GetCourse и ботов-помощников.
+                  </p>
+                  <div className="case-main-card-links">
+                    <div className="case-link-group">
+                      <strong>Лендинги на GetCourse:</strong>
                     <ul>
                       <li><a href="https://vyoga.ru/elementor-%D0%BB%D0%B5%D0%BD%D0%B4%D0%B8%D0%BD%D0%B3-1965" target="_blank" rel="noopener noreferrer">Общий лендинг: Йога и Цигун</a></li>
                       <li><a href="https://vyoga.ru/elementor-%D0%BB%D0%B5%D0%BD%D0%B4%D0%B8%D0%BD%D0%B3-1984/" target="_blank" rel="noopener noreferrer">Курс «Дао женского здоровья»</a></li>
@@ -160,22 +178,27 @@ function Profile({ onBack, onAvatarClick, onDiagnostics }) {
                       <li><a href="https://rcdway.ru/" target="_blank" rel="noopener noreferrer">Обучение руководителей для rcdway.ru</a></li>
                       <li><a href="https://vyoga.ru/elementor-%D0%BB%D0%B5%D0%BD%D0%B4%D0%B8%D0%BD%D0%B3-1965" target="_blank" rel="noopener noreferrer">Курсы по йоге для vyoga.ru</a></li>
                     </ul>
+                    </div>
                   </div>
                 </div>
               </div>
 
               {/* Карточка 2: Маркетинг и Mini Apps */}
-              <div className="case-main-card">
-                <div className="case-main-card-image">
+              <div className={`case-main-card ${expandedCases[1] ? 'expanded' : ''}`}>
+                <div className="case-main-card-image" onClick={() => toggleCase(1)}>
                   <img src="/images/2.png" alt="Маркетинг и Mini Apps" />
                 </div>
-                <h3 className="case-main-card-title">Маркетинг и Mini Apps</h3>
-                <p className="case-main-card-description">
-                  Современные WebApp-интерфейсы внутри Telegram и воронки продаж, которые превращают подписчиков в покупателей.
-                </p>
-                <div className="case-main-card-links">
-                  <div className="case-link-group">
-                    <strong>Showcase:</strong>
+                <div className="case-main-card-header" onClick={() => toggleCase(1)}>
+                  <h3 className="case-main-card-title">Маркетинг и Mini Apps</h3>
+                  <span className={`case-toggle-icon ${expandedCases[1] ? 'expanded' : ''}`}>▼</span>
+                </div>
+                <div className={`case-main-card-content ${expandedCases[1] ? 'expanded' : ''}`}>
+                  <p className="case-main-card-description">
+                    Современные WebApp-интерфейсы внутри Telegram и воронки продаж, которые превращают подписчиков в покупателей.
+                  </p>
+                  <div className="case-main-card-links">
+                    <div className="case-link-group">
+                      <strong>Showcase:</strong>
                     <ul>
                       <li><a href="https://miniappvizitka.vercel.app/" target="_blank" rel="noopener noreferrer">Визитка MiniApp</a></li>
                       <li><a href="https://telegram.me/krasota_vostoka_bot" target="_blank" rel="noopener noreferrer">Магазин чая</a></li>
@@ -194,22 +217,27 @@ function Profile({ onBack, onAvatarClick, onDiagnostics }) {
                       <li><a href="https://t.me/kidcodes_music_bot" target="_blank" rel="noopener noreferrer">Запись на концерты</a></li>
                       <li><a href="https://t.me/FDatingPermBot" target="_blank" rel="noopener noreferrer">Бот знакомств</a></li>
                     </ul>
+                    </div>
                   </div>
                 </div>
               </div>
 
               {/* Карточка 3: Автоматизация и B2B (1С) */}
-              <div className="case-main-card">
-                <div className="case-main-card-image">
+              <div className={`case-main-card ${expandedCases[2] ? 'expanded' : ''}`}>
+                <div className="case-main-card-image" onClick={() => toggleCase(2)}>
                   <img src="/images/3.png" alt="Автоматизация и B2B" />
                 </div>
-                <h3 className="case-main-card-title">Автоматизация и B2B (1С)</h3>
-                <p className="case-main-card-description">
-                  Сложные технические решения для интеграции мессенджеров с корпоративным ПО и учетными системами.
-                </p>
-                <div className="case-main-card-links">
-                  <div className="case-link-group">
-                    <strong>ТКО-Сервис:</strong>
+                <div className="case-main-card-header" onClick={() => toggleCase(2)}>
+                  <h3 className="case-main-card-title">Автоматизация и B2B (1С)</h3>
+                  <span className={`case-toggle-icon ${expandedCases[2] ? 'expanded' : ''}`}>▼</span>
+                </div>
+                <div className={`case-main-card-content ${expandedCases[2] ? 'expanded' : ''}`}>
+                  <p className="case-main-card-description">
+                    Сложные технические решения для интеграции мессенджеров с корпоративным ПО и учетными системами.
+                  </p>
+                  <div className="case-main-card-links">
+                    <div className="case-link-group">
+                      <strong>ТКО-Сервис:</strong>
                     <ul>
                       <li><a href="https://t.me/ProTKObot" target="_blank" rel="noopener noreferrer">Система учета на базе 1С (1.5+ года работы, 1000+ чел)</a></li>
                     </ul>
@@ -228,6 +256,7 @@ function Profile({ onBack, onAvatarClick, onDiagnostics }) {
                     <ul>
                       <li><a href="https://telegram.me/BeautyWitchBot" target="_blank" rel="noopener noreferrer">Бот для кабинета косметолога</a></li>
                     </ul>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -242,25 +271,109 @@ function Profile({ onBack, onAvatarClick, onDiagnostics }) {
           <section className="profile-section">
             <h2>Технологический стек</h2>
             <div className="tech-stack-grid">
-              <div className="tech-stack-card">
-                <div className="tech-stack-icon">🌐</div>
-                <h3>Web-разработка</h3>
-                <p>Создание лендингов и многостраничных сайтов как на конструкторах (Tilda, GetCourse), так и кастомных решений (React/Vercel) для высокой скорости загрузки</p>
+              <div className={`tech-stack-card ${expandedTechStack[0] ? 'expanded' : ''}`}>
+                <div className="tech-stack-icon" onClick={() => toggleTechStack(0)}>
+                  <img src="/images/11.jpg" alt="Web-разработка" />
+                </div>
+                <div className="tech-stack-header" onClick={() => toggleTechStack(0)}>
+                  <h3>Web-разработка</h3>
+                  <span className={`tech-toggle-icon ${expandedTechStack[0] ? 'expanded' : ''}`}>▼</span>
+                </div>
+                <div className={`tech-stack-content ${expandedTechStack[0] ? 'expanded' : ''}`}>
+                  <p>Создание лендингов и многостраничных сайтов как на конструкторах, так и кастомных решений для высокой скорости загрузки.</p>
+                  
+                  <div className="tech-stack-section">
+                    <strong>Инструменты и технологии:</strong> Tilda, Wordpress, Taplink, GetCourse, React/Vercel, C#, MS Visual Studio, VBA.
+                  </div>
+
+                  <div className="tech-stack-section">
+                    <strong>Аналитика и проектирование:</strong> Системный анализ, Figma (макеты экранов), UML (модели бизнес-объектов).
+                  </div>
+
+                  <div className="tech-stack-section">
+                    <strong>Документация:</strong> Разработка бизнес-требований, ТЗ и проектной документации.
+                  </div>
+                </div>
               </div>
-              <div className="tech-stack-card">
-                <div className="tech-stack-icon">📱</div>
-                <h3>Telegram Mini Apps</h3>
-                <p>Разработка интерфейсов внутри мессенджера, которые заменяют полноценные мобильные приложения и сайты</p>
+              <div className={`tech-stack-card ${expandedTechStack[1] ? 'expanded' : ''}`}>
+                <div className="tech-stack-icon" onClick={() => toggleTechStack(1)}>
+                  <img src="/images/22.jpg" alt="Telegram Mini Apps" />
+                </div>
+                <div className="tech-stack-header" onClick={() => toggleTechStack(1)}>
+                  <h3>Telegram Mini Apps</h3>
+                  <span className={`tech-toggle-icon ${expandedTechStack[1] ? 'expanded' : ''}`}>▼</span>
+                </div>
+                <div className={`tech-stack-content ${expandedTechStack[1] ? 'expanded' : ''}`}>
+                  <p>Разработка интерфейсов внутри мессенджера, которые заменяют полноценные мобильные приложения и сайты.</p>
+                  
+                  <div className="tech-stack-section">
+                    <strong>Платформы и языки:</strong> Python, LeadTeh, BotHelp, SaleBot.
+                  </div>
+
+                  <div className="tech-stack-section">
+                    <strong>Интеграции:</strong> Работа с API, XML, XSD.
+                  </div>
+
+                  <div className="tech-stack-section">
+                    <strong>Опыт:</strong> Реализовано более 20 ботов и Mini Apps для различных ниш бизнеса.
+                  </div>
+                </div>
               </div>
-              <div className="tech-stack-card">
-                <div className="tech-stack-icon">🎓</div>
-                <h3>Автоматизация EdTech</h3>
-                <p>Полная настройка платформы GetCourse, сборка автоворонок, интеграция платежей и CRM-систем</p>
+              <div className={`tech-stack-card ${expandedTechStack[2] ? 'expanded' : ''}`}>
+                <div className="tech-stack-icon" onClick={() => toggleTechStack(2)}>
+                  <img src="/images/33.jpg" alt="Автоматизация EdTech" />
+                </div>
+                <div className="tech-stack-header" onClick={() => toggleTechStack(2)}>
+                  <h3>Автоматизация EdTech</h3>
+                  <span className={`tech-toggle-icon ${expandedTechStack[2] ? 'expanded' : ''}`}>▼</span>
+                </div>
+                <div className={`tech-stack-content ${expandedTechStack[2] ? 'expanded' : ''}`}>
+                  <p>Полная настройка платформы GetCourse, сборка автоворонок, интеграция платежей и CRM-систем.</p>
+                  
+                  <div className="tech-stack-section">
+                    <strong>Ключевая платформа:</strong> GetCourse.
+                  </div>
+
+                  <div className="tech-stack-section">
+                    <strong>Методология:</strong> Связка «методолог → технический специалист» для реализации программ обучения.
+                  </div>
+
+                  <div className="tech-stack-section">
+                    <strong>Процессы:</strong> Сборка автоворонок, настройка викторин и игр для вовлечения студентов на сайте.
+                  </div>
+
+                  <div className="tech-stack-section">
+                    <strong>Управление:</strong> Использование Jira и Wiki для ведения проектов.
+                  </div>
+                </div>
               </div>
-              <div className="tech-stack-card">
-                <div className="tech-stack-icon">🔗</div>
-                <h3>Системная интеграция</h3>
-                <p>Связка сайтов и ботов с внутренним ПО бизнеса (1С, SQL, сторонние API) для полной автоматизации отчетности</p>
+              <div className={`tech-stack-card ${expandedTechStack[3] ? 'expanded' : ''}`}>
+                <div className="tech-stack-icon" onClick={() => toggleTechStack(3)}>
+                  <img src="/images/44.jpg" alt="Системная интеграция" />
+                </div>
+                <div className="tech-stack-header" onClick={() => toggleTechStack(3)}>
+                  <h3>Системная интеграция</h3>
+                  <span className={`tech-toggle-icon ${expandedTechStack[3] ? 'expanded' : ''}`}>▼</span>
+                </div>
+                <div className={`tech-stack-content ${expandedTechStack[3] ? 'expanded' : ''}`}>
+                  <p>Связка сайтов и ботов с внутренним ПО бизнеса для полной автоматизации отчетности.</p>
+                  
+                  <div className="tech-stack-section">
+                    <strong>Базы данных:</strong> MS SQL, Oracle (PL/SQL), PostgreSQL, проектирование витрин данных.
+                  </div>
+
+                  <div className="tech-stack-section">
+                    <strong>Бизнес-софт:</strong> 1С: Бухгалтерия, 1C: Зарплата и кадры, интеграция ботов с системами 1С.
+                  </div>
+
+                  <div className="tech-stack-section">
+                    <strong>Инструменты анализа:</strong> Bizagi Modeler (BPMN 2.0), PowerDesigner, TOAD, TFS.
+                  </div>
+
+                  <div className="tech-stack-section">
+                    <strong>Обмен данными:</strong> MQ (очереди сообщений), работа со сторонними API.
+                  </div>
+                </div>
               </div>
             </div>
           </section>
@@ -270,24 +383,24 @@ function Profile({ onBack, onAvatarClick, onDiagnostics }) {
             <h2>Достижения</h2>
             <div className="achievements-grid">
               <div className="achievement-card">
-                <div className="achievement-number">20+</div>
-                <h3>Реализованных ботов</h3>
-                <p>Коммерческие проекты различной сложности</p>
+                <div className="achievement-number">19+</div>
+                <h3>Лет в IT, из них 15 лет в Enterprise</h3>
+                <p>Руководил IT-проектами для ЦБ РФ и Минздрава.</p>
               </div>
               <div className="achievement-card">
-                <div className="achievement-number">500K</div>
-                <h3>Максимальный проект</h3>
-                <p>Бот стоимостью 500 000 рублей</p>
+                <div className="achievement-number">1 млрд. ₽ +</div>
+                <h3>Суммарный бюджет систем</h3>
+                <p>разработанных под моим управлением.</p>
               </div>
               <div className="achievement-card">
-                <div className="achievement-number">100%</div>
-                <h3>Проектов в срок</h3>
-                <p>Все проекты сданы вовремя</p>
+                <div className="achievement-number">30+</div>
+                <h3>Внедренных экосистем</h3>
+                <p>Запустил более 30 ботов и автоворонок за последние 3 года.</p>
               </div>
               <div className="achievement-card">
-                <div className="achievement-number">18+</div>
-                <h3>Лет в IT</h3>
-                <p>Опыт работы с крупными системами</p>
+                <div className="achievement-number">500к ₽</div>
+                <h3>Максимальный чек за одного бота</h3>
+                <p>Я создаю сложные активы, а не просто чат-ботов.</p>
               </div>
             </div>
           </section>
