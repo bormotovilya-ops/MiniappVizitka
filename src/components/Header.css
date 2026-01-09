@@ -260,6 +260,14 @@
   display: inline-block;
 }
 
+.mobile-emoji {
+  display: none;
+}
+
+.desktop-icon {
+  display: inline-block;
+}
+
 /* На десктопе - в одну строку */
 @media (min-width: 769px) {
   .consultation-btn-text {
@@ -526,9 +534,16 @@
     font-size: 10px;
   }
 
-  .cursor-icon {
-    width: 12px;
-    height: 12px;
+  .cursor-icon,
+  .desktop-icon {
+    display: none;
+  }
+
+  .mobile-emoji {
+    display: inline-block;
+    font-size: 14px;
+    line-height: 1;
+    margin-right: 2px;
   }
 }
 
@@ -588,8 +603,15 @@
     font-size: 10px;
   }
 
-  .cursor-icon {
-    width: 12px;
-    height: 12px;
+  .cursor-icon,
+  .desktop-icon {
+    display: none;
+  }
+
+  .mobile-emoji {
+    display: inline-block;
+    font-size: 12px;
+    line-height: 1;
+    margin-right: 2px;
   }
 }

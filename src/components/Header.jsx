@@ -10,7 +10,7 @@ function Header({ onAvatarClick, onConsultation, onBack }) {
           onClick={onBack}
           aria-label="Назад"
         >
-          ←
+          <img src="/images/arrow-back.svg" alt="Назад" className="back-arrow-icon" />
         </button>
         <div className="header-profile-block" onClick={onAvatarClick}>
           <img 
@@ -19,18 +19,24 @@ function Header({ onAvatarClick, onConsultation, onBack }) {
             className="header-avatar" 
           />
         </div>
-        <button className="header-consultation-btn" onClick={onConsultation}>
-          <span className="consultation-btn-text">
-            <span className="consultation-btn-line">✨ Диагностика</span>
-            <span className="consultation-btn-line">вашей воронки</span>
-          </span>
-        </button>
+        <div className="header-consultation-wrapper">
+          <button className="header-consultation-btn" onClick={onConsultation}>
+            <span className="consultation-btn-text">
+              <span className="consultation-btn-line">
+                <img src="/images/cursor.svg" alt="курсор" className="cursor-icon desktop-icon" />
+                <span className="mobile-emoji">🔍</span>
+                Диагностика
+              </span>
+              <span className="consultation-btn-line">вашей воронки</span>
+            </span>
+          </button>
+          <div className="header-name-bottom" onClick={onAvatarClick}>
+            <span className="header-name">Бормотов Илья</span>
+            <span className="header-separator">·</span>
+            <span className="header-title">Архитектор АИЦП</span>
+          </div>
+        </div>
         <div className="header-spacer-right"></div>
-      </div>
-      <div className="header-name-bottom">
-        <span className="header-name">Бормотов Илья</span>
-        <span className="header-separator">·</span>
-        <span className="header-title">Архитектор АИЦП</span>
       </div>
     </div>
   )
