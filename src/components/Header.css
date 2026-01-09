@@ -383,11 +383,12 @@
   .header-profile-block {
     flex-shrink: 0;
     padding: 0;
+    align-items: center;
   }
 
   .header-avatar {
-    height: 40px;
-    width: 40px;
+    height: 52px;
+    width: 52px;
     aspect-ratio: 1;
     border-radius: 8px;
     border: 2px solid rgba(255, 255, 255, 0.12);
@@ -402,15 +403,27 @@
   }
 
   .header-consultation-wrapper {
-    gap: 5px;
+    gap: 6px;
     flex: 1;
     min-width: 0;
     align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .header-consultation-btn {
+    order: 1;
   }
 
   .header-name-bottom {
-    gap: 3px;
-    padding: 2px 5px;
+    order: 2;
+    gap: 4px;
+    padding: 2px 6px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0;
   }
 
   .header-name {
@@ -548,8 +561,8 @@
   }
 
   .header-avatar {
-    height: 40px;
-    width: 40px;
+    height: 48px;
+    width: 48px;
     border-radius: 6px;
   }
 
