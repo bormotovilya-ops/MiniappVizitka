@@ -60,15 +60,6 @@ const funnelData = [
     description: 'Доход, который получает автор продукта',
     tech: [],
     width: 151 // 126 * 1.2
-  },
-  {
-    id: 'value',
-    name: 'Ценность',
-    image: '/images/7_ценность.png',
-    color: '#16a085',
-    description: 'Ценность, которую получает клиент от продукта',
-    tech: [],
-    width: 151 // 126 * 1.2
   }
 ]
 
@@ -120,7 +111,16 @@ function SalesFunnel() {
   }
 
   if (showProfile) {
-    return <Profile onBack={() => setShowProfile(false)} onAvatarClick={() => setShowProfile(false)} />
+    return (
+      <Profile 
+        onBack={() => setShowProfile(false)} 
+        onAvatarClick={() => setShowProfile(false)}
+        onDiagnostics={() => {
+          setShowProfile(false)
+          setShowDiagnostics(true)
+        }}
+      />
+    )
   }
 
   if (selectedBlock) {
@@ -148,7 +148,7 @@ function SalesFunnel() {
             <React.Fragment key={block.id}>
               {/* Блок воронки */}
               <div
-                className={`funnel-block ${selectedBlock?.id === block.id ? 'selected' : ''} ${isAnimating && selectedBlock?.id === block.id ? 'animating' : ''}`}
+                className={`funnel-block ${block.id === 'product' ? 'product-block' : ''} ${selectedBlock?.id === block.id ? 'selected' : ''} ${isAnimating && selectedBlock?.id === block.id ? 'animating' : ''}`}
                 style={{
                   '--block-color': block.color,
                   '--block-width': `${block.width}px`
@@ -161,7 +161,7 @@ function SalesFunnel() {
               
               {/* Стрелка (вертикальная) */}
               {index < 4 && (
-                <div className="funnel-arrow">
+                <div className={`funnel-arrow ${block.id === 'autofunnel' ? 'product-arrow' : ''}`}>
                   <svg width="20" height="20" viewBox="0 0 20 20" className="arrow-svg">
                     <line 
                       x1="10" 
@@ -219,7 +219,7 @@ function SalesFunnel() {
             </svg>
           </div>
           
-          {/* Блоки результата (Деньги и Ценность рядом) */}
+          {/* Блок результата (Деньги) */}
           <div className="result-blocks-container">
             {funnelData.slice(5).map((block) => (
               <div

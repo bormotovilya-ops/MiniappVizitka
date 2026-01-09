@@ -64,8 +64,14 @@ const portfolioData = {
             items: [
               { text: 'Бот по медитациям', url: 'https://t.me/meditasiya_bot' },
               { text: 'Бот по йоге и цигун', url: 'https://t.me/V_Yoga_Bot' },
-              { text: 'Уроки вокала', url: 'https://t.me/VocallessonsLaika_Bot' },
-              { text: 'GetCourse - обучение руководителей для rcdway.ru', url: 'https://rcdway.ru/' }
+              { text: 'Уроки вокала', url: 'https://t.me/VocallessonsLaika_Bot' }
+            ]
+          },
+          {
+            group: 'GetCourse:',
+            items: [
+              { text: 'Обучение руководителей для rcdway.ru', url: 'https://rcdway.ru/' },
+              { text: 'Курсы по йоге для vyoga.ru', url: 'https://vyoga.ru/elementor-%D0%BB%D0%B5%D0%BD%D0%B4%D0%B8%D0%BD%D0%B3-1965' }
             ]
           }
         ]

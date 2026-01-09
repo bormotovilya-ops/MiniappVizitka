@@ -152,7 +152,13 @@ function Profile({ onBack, onAvatarClick, onDiagnostics }) {
                       <li><a href="https://t.me/meditasiya_bot" target="_blank" rel="noopener noreferrer">Бот по медитациям</a></li>
                       <li><a href="https://t.me/V_Yoga_Bot" target="_blank" rel="noopener noreferrer">Бот по йоге и цигун</a></li>
                       <li><a href="https://t.me/VocallessonsLaika_Bot" target="_blank" rel="noopener noreferrer">Уроки вокала</a></li>
-                      <li><a href="https://rcdway.ru/" target="_blank" rel="noopener noreferrer">GetCourse - обучение руководителей для rcdway.ru</a></li>
+                    </ul>
+                  </div>
+                  <div className="case-link-group">
+                    <strong>GetCourse:</strong>
+                    <ul>
+                      <li><a href="https://rcdway.ru/" target="_blank" rel="noopener noreferrer">Обучение руководителей для rcdway.ru</a></li>
+                      <li><a href="https://vyoga.ru/elementor-%D0%BB%D0%B5%D0%BD%D0%B4%D0%B8%D0%BD%D0%B3-1965" target="_blank" rel="noopener noreferrer">Курсы по йоге для vyoga.ru</a></li>
                     </ul>
                   </div>
                 </div>
