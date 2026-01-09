@@ -470,3 +470,65 @@
     height: 14px;
   }
 }
+
+/* Дополнительные стили для очень маленьких экранов */
+@media (max-width: 480px) {
+  .header-block {
+    padding: 10px 12px;
+  }
+
+  .header-content {
+    gap: 8px;
+  }
+
+  .header-back-btn {
+    height: 32px;
+    width: 32px;
+    min-width: 32px;
+    padding: 6px;
+    font-size: 16px;
+  }
+
+  .back-arrow-icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  .header-spacer-right {
+    width: 32px;
+    min-width: 32px;
+  }
+
+  .header-avatar {
+    height: 40px;
+    width: 40px;
+    border-radius: 6px;
+  }
+
+  .header-consultation-btn {
+    font-size: 10px;
+    padding: 6px 10px;
+    min-height: 32px;
+  }
+
+  .header-name {
+    font-size: 11px;
+  }
+
+  .header-separator {
+    font-size: 10px;
+  }
+
+  .header-title {
+    font-size: 10px;
+  }
+
+  .consultation-btn-line {
+    font-size: 10px;
+  }
+
+  .cursor-icon {
+    width: 12px;
+    height: 12px;
+  }
+}
