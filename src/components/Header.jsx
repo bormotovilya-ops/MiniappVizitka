@@ -23,11 +23,8 @@ function Header({ onAvatarClick, onConsultation, onBack }) {
         <div className="header-consultation-wrapper">
           <button className="header-consultation-btn" onClick={onConsultation}>
             <span className="consultation-btn-text">
-              <span className="consultation-btn-line">
-                <img src="/images/cursor.svg" alt="курсор" className="cursor-icon" />
-                Диагностика
-              </span>
-              <span className="consultation-btn-line">вашей воронки</span>
+              <img src="/images/cursor.svg" alt="курсор" className="cursor-icon" />
+              Диагностика вашей воронки
             </span>
           </button>
           <div className="header-name-bottom" onClick={onAvatarClick}>

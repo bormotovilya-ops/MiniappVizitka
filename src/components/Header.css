@@ -237,19 +237,13 @@
 
 .consultation-btn-text {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 2px;
+  gap: 6px;
   line-height: 1.3;
   position: relative;
   z-index: 1;
-}
-
-.consultation-btn-line {
-  display: flex;
-  align-items: center;
-  gap: 6px;
   white-space: nowrap;
 }
 
@@ -268,14 +262,6 @@
   display: inline-block;
 }
 
-/* На десктопе - в одну строку */
-@media (min-width: 769px) {
-  .consultation-btn-text {
-    flex-direction: row;
-    gap: 4px;
-    white-space: nowrap;
-  }
-}
 
 /* Анимированный блик (Shine Effect) */
 .header-consultation-btn::before {
@@ -529,16 +515,11 @@
   }
 
   .consultation-btn-text {
-    gap: 1px;
-    flex-direction: column;
+    gap: 6px;
+    flex-direction: row;
     position: relative;
     z-index: 1;
-  }
-
-  .consultation-btn-line {
     white-space: nowrap;
-    line-height: 1.2;
-    font-size: 10px;
   }
 
   .cursor-icon {
@@ -607,7 +588,8 @@
     font-size: 10px;
   }
 
-  .consultation-btn-line {
+  .consultation-btn-text {
+    gap: 5px;
     font-size: 10px;
   }
 
