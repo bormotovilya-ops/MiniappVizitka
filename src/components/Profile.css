@@ -297,10 +297,13 @@
   width: 100%;
   height: 100%;
   max-width: none;
+  min-height: 0;
   object-fit: contain;
   border-radius: 12px 12px 0 0;
   transition: transform 0.3s ease;
   display: block;
+  visibility: visible;
+  opacity: 1;
 }
 
 .tech-stack-card:hover .tech-stack-icon img {
@@ -416,10 +419,17 @@
   .tech-stack-icon {
     height: 180px;
     margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .tech-stack-icon img {
+    width: 100%;
+    height: 100%;
     max-width: none;
+    object-fit: contain;
+    display: block;
   }
 
   .tech-stack-header {
@@ -1517,5 +1527,16 @@
 
   .tech-stack-icon {
     height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .tech-stack-icon img {
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    object-fit: contain;
+    display: block;
   }
 }
