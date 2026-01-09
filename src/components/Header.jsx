@@ -10,7 +10,8 @@ function Header({ onAvatarClick, onConsultation, onBack }) {
           onClick={onBack}
           aria-label="Назад"
         >
-          <img src="/images/arrow-back.svg" alt="Назад" className="back-arrow-icon" />
+          <img src="/images/arrow-back.svg" alt="Назад" className="back-arrow-icon desktop-back-icon" />
+          <span className="mobile-back-emoji">←</span>
         </button>
         <div className="header-profile-block" onClick={onAvatarClick}>
           <img 
@@ -23,8 +24,7 @@ function Header({ onAvatarClick, onConsultation, onBack }) {
           <button className="header-consultation-btn" onClick={onConsultation}>
             <span className="consultation-btn-text">
               <span className="consultation-btn-line">
-                <img src="/images/cursor.svg" alt="курсор" className="cursor-icon desktop-icon" />
-                <span className="mobile-emoji">🔍</span>
+                <img src="/images/cursor.svg" alt="курсор" className="cursor-icon" />
                 Диагностика
               </span>
               <span className="consultation-btn-line">вашей воронки</span>

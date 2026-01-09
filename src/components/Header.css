@@ -260,11 +260,11 @@
   display: inline-block;
 }
 
-.mobile-emoji {
+.mobile-back-emoji {
   display: none;
 }
 
-.desktop-icon {
+.desktop-back-icon {
   display: inline-block;
 }
 
@@ -363,9 +363,16 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(255, 255, 255, 0.1) inset;
   }
 
-  .back-arrow-icon {
-    width: 18px;
-    height: 18px;
+  .back-arrow-icon,
+  .desktop-back-icon {
+    display: none;
+  }
+
+  .mobile-back-emoji {
+    display: inline-block;
+    font-size: 20px;
+    line-height: 1;
+    color: #ffffff;
   }
 
   .header-back-btn.visible:hover {
@@ -534,16 +541,10 @@
     font-size: 10px;
   }
 
-  .cursor-icon,
-  .desktop-icon {
-    display: none;
-  }
-
-  .mobile-emoji {
+  .cursor-icon {
+    width: 14px;
+    height: 14px;
     display: inline-block;
-    font-size: 14px;
-    line-height: 1;
-    margin-right: 2px;
   }
 }
 
@@ -565,9 +566,16 @@
     font-size: 16px;
   }
 
-  .back-arrow-icon {
-    width: 16px;
-    height: 16px;
+  .back-arrow-icon,
+  .desktop-back-icon {
+    display: none;
+  }
+
+  .mobile-back-emoji {
+    display: inline-block;
+    font-size: 18px;
+    line-height: 1;
+    color: #ffffff;
   }
 
   .header-spacer-right {
@@ -603,15 +611,9 @@
     font-size: 10px;
   }
 
-  .cursor-icon,
-  .desktop-icon {
-    display: none;
-  }
-
-  .mobile-emoji {
+  .cursor-icon {
+    width: 12px;
+    height: 12px;
     display: inline-block;
-    font-size: 12px;
-    line-height: 1;
-    margin-right: 2px;
   }
 }
