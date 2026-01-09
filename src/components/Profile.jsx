@@ -298,10 +298,10 @@ function Profile({ onBack, onAvatarClick, onDiagnostics }) {
               </div>
               <div className={`tech-stack-card ${expandedTechStack[1] ? 'expanded' : ''}`}>
                 <div className="tech-stack-icon" onClick={() => toggleTechStack(1)}>
-                  <img src="/images/22.jpg" alt="Telegram Mini Apps" />
+                  <img src="/images/22.jpg" alt="Чат-боты и Mini Apps" />
                 </div>
                 <div className="tech-stack-header" onClick={() => toggleTechStack(1)}>
-                  <h3>Telegram Mini Apps</h3>
+                  <h3>Чат-боты и Mini Apps</h3>
                   <span className={`tech-toggle-icon ${expandedTechStack[1] ? 'expanded' : ''}`}>▼</span>
                 </div>
                 <div className={`tech-stack-content ${expandedTechStack[1] ? 'expanded' : ''}`}>
