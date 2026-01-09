@@ -11,24 +11,121 @@ const portfolioData = {
       'ИП с 2018 года, фокус на Telegram с 2023'
     ]
   },
-  cases: {
-    title: 'Кейсы',
+  competencies: {
+    title: 'Технологический стек',
     items: [
-      '20+ реализованных коммерческих ботов',
-      'Бот за 500 тыс. руб. - максимальный проект',
-      'Крупные госпроекты стоимостью сотни миллионов',
-      'Онлайн-школы: до/после автоматизации',
-      '100% проектов сданы в срок'
+      {
+        icon: '🌐',
+        title: 'Web-разработка',
+        description: 'Создание лендингов и многостраничных сайтов как на конструкторах (Tilda, GetCourse), так и кастомных решений (React/Vercel) для высокой скорости загрузки'
+      },
+      {
+        icon: '📱',
+        title: 'Telegram Mini Apps',
+        description: 'Разработка интерфейсов внутри мессенджера, которые заменяют полноценные мобильные приложения и сайты'
+      },
+      {
+        icon: '🎓',
+        title: 'Автоматизация EdTech',
+        description: 'Полная настройка платформы GetCourse, сборка автоворонок, интеграция платежей и CRM-систем'
+      },
+      {
+        icon: '🔗',
+        title: 'Системная интеграция',
+        description: 'Связка сайтов и ботов с внутренним ПО бизнеса (1С, SQL, сторонние API) для полной автоматизации отчетности'
+      }
     ]
   },
-  competencies: {
-    title: 'Компетенции',
-    items: [
-      'Системная аналитика',
-      'Архитектура воронок продаж',
-      'Интеграции и автоматизация',
-      'Telegram-боты и MiniApps',
-      'Управление проектами'
+  cases: {
+    title: 'Кейсы',
+    cards: [
+      {
+        title: 'Инфобизнес и EdTech',
+        description: 'Комплексная автоматизация обучения: от продающих лендингов до настройки GetCourse и ботов-помощников.',
+        image: '/images/1.png',
+        links: [
+          {
+            group: 'Лендинги на GetCourse:',
+            items: [
+              { text: 'Общий лендинг: Йога и Цигун', url: 'https://vyoga.ru/elementor-%D0%BB%D0%B5%D0%BD%D0%B4%D0%B8%D0%BD%D0%B3-1965' },
+              { text: 'Курс «Дао женского здоровья»', url: 'https://vyoga.ru/elementor-%D0%BB%D0%B5%D0%BD%D0%B4%D0%B8%D0%BD%D0%B3-1984/' },
+              { text: 'Программа «Здоровая спина»', url: 'https://vyoga.ru/elementor-%D0%BB%D0%B5%D0%BD%D0%B4%D0%B8%D0%BD%D0%B3-1887/' },
+              { text: 'Курс «Здоровье нервной системы»', url: 'https://vyoga.ru/elementor-%D0%BB%D0%B5%D0%BD%D0%B4%D0%B8%D0%BD%D0%B3-1945/' }
+            ]
+          },
+          {
+            group: 'Сайты:',
+            items: [
+              { text: 'Сайт-тест по Аюрведе (DoshaTest)', url: 'https://doshatest.ru' }
+            ]
+          },
+          {
+            group: 'Видеокурсы в боте:',
+            items: [
+              { text: 'Бот по медитациям', url: 'https://t.me/meditasiya_bot' },
+              { text: 'Бот по йоге и цигун', url: 'https://t.me/V_Yoga_Bot' },
+              { text: 'Уроки вокала', url: 'https://t.me/VocallessonsLaika_Bot' },
+              { text: 'GetCourse - обучение руководителей для rcdway.ru', url: 'https://rcdway.ru/' }
+            ]
+          }
+        ]
+      },
+      {
+        title: 'Маркетинг и Mini Apps',
+        description: 'Современные WebApp-интерфейсы внутри Telegram и воронки продаж, которые превращают подписчиков в покупателей.',
+        image: '/images/2.png',
+        links: [
+          {
+            group: 'Showcase:',
+            items: [
+              { text: 'Визитка MiniApp', url: 'https://miniappvizitka.vercel.app/' },
+              { text: 'Магазин чая', url: 'https://telegram.me/krasota_vostoka_bot' }
+            ]
+          },
+          {
+            group: 'Воронки:',
+            items: [
+              { text: 'Школа китайского (1000+ чел)', url: 'https://telegram.me/weinihaoru_bot' },
+              { text: 'Юридические услуги', url: 'https://telegram.me/SafeSaleLawBot' }
+            ]
+          },
+          {
+            group: 'Events:',
+            items: [
+              { text: 'Запись на концерты', url: 'https://t.me/kidcodes_music_bot' },
+              { text: 'Бот знакомств', url: 'https://t.me/FDatingPermBot' }
+            ]
+          }
+        ]
+      },
+      {
+        title: 'Автоматизация и B2B (1С)',
+        description: 'Сложные технические решения для интеграции мессенджеров с корпоративным ПО и учетными системами.',
+        image: '/images/3.png',
+        links: [
+          {
+            group: 'ТКО-Сервис:',
+            items: [
+              { text: 'Система учета на базе 1С (1.5+ года работы, 1000+ чел)', url: 'https://t.me/ProTKObot' }
+            ]
+          },
+          {
+            group: 'Экосистема для стройки:',
+            items: [
+              { text: 'Приемка', url: 'https://telegram.me/PriemkaGarantBot' },
+              { text: 'Рекламации', url: 'https://telegram.me/reclamation_kv_bot' },
+              { text: 'Закупки', url: 'https://telegram.me/BuildOrdersBot' },
+              { text: 'QR-проходная', url: 'https://telegram.me/AccessStroyBot' }
+            ]
+          },
+          {
+            group: 'Запись на услуги:',
+            items: [
+              { text: 'Бот для кабинета косметолога', url: 'https://telegram.me/BeautyWitchBot' }
+            ]
+          }
+        ]
+      }
     ]
   }
 }
@@ -56,20 +153,46 @@ function Portfolio({ onClose, onConsultation }) {
 
           <div className="portfolio-section">
             <h3>{portfolioData.cases.title}</h3>
-            <ul>
-              {portfolioData.cases.items.map((item, idx) => (
-                <li key={idx}>{item}</li>
+            <div className="portfolio-cases-cards">
+              {portfolioData.cases.cards.map((card, cardIdx) => (
+                <div key={cardIdx} className="portfolio-case-main-card">
+                  <div className="portfolio-case-main-card-image">
+                    <img src={card.image} alt={card.title} />
+                  </div>
+                  <h4 className="portfolio-case-main-card-title">{card.title}</h4>
+                  <p className="portfolio-case-main-card-description">{card.description}</p>
+                  <div className="portfolio-case-main-card-links">
+                    {card.links.map((linkGroup, groupIdx) => (
+                      <div key={groupIdx} className="portfolio-case-link-group">
+                        <strong>{linkGroup.group}</strong>
+                        <ul>
+                          {linkGroup.items.map((item, itemIdx) => (
+                            <li key={itemIdx}>
+                              {typeof item === 'string' ? item : (
+                                <a href={item.url} target="_blank" rel="noopener noreferrer">{item.text}</a>
+                              )}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               ))}
-            </ul>
+            </div>
           </div>
 
           <div className="portfolio-section">
             <h3>{portfolioData.competencies.title}</h3>
-            <ul>
+            <div className="portfolio-tech-stack">
               {portfolioData.competencies.items.map((item, idx) => (
-                <li key={idx}>{item}</li>
+                <div key={idx} className="portfolio-tech-item">
+                  <div className="portfolio-tech-icon">{item.icon}</div>
+                  <strong>{item.title}</strong>
+                  <p>{item.description}</p>
+                </div>
               ))}
-            </ul>
+            </div>
           </div>
         </div>
 
