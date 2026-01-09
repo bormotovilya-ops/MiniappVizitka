@@ -10,6 +10,7 @@
   margin-bottom: 40px;
   position: relative;
   overflow: visible;
+  box-sizing: border-box;
 }
 
 .funnel-3d-container::before {
@@ -28,12 +29,14 @@
 
 .funnel-3d-wrapper {
   width: 100%;
+  max-width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
   z-index: 1;
   overflow: visible;
+  box-sizing: border-box;
 }
 
 .funnel-3d-svg {
@@ -44,6 +47,7 @@
   filter: drop-shadow(0 0 20px rgba(0, 255, 136, 0.3));
   overflow: visible;
   display: block;
+  box-sizing: border-box;
 }
 
 .funnel-info-group {
@@ -116,20 +120,31 @@
 @media (max-width: 1024px) {
   .funnel-3d-svg {
     max-width: 100%;
-    transform: scale(0.9);
+    width: 100%;
+    transform: none;
     transform-origin: top center;
   }
 }
 
 @media (max-width: 768px) {
   .funnel-3d-container {
-    padding: 20px 10px;
+    padding: 10px 5px;
     gap: 5px;
+    width: 100%;
+    min-height: 100%;
+    box-sizing: border-box;
+  }
+
+  .funnel-3d-wrapper {
+    width: 100%;
+    max-width: 100%;
   }
 
   .funnel-3d-svg {
+    width: 100%;
     max-width: 100%;
-    transform: scale(0.75);
+    height: auto;
+    transform: none;
     transform-origin: top center;
   }
 
@@ -143,6 +158,9 @@
 
   .lost-profit-counter {
     padding: 20px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   .lost-profit-label {
@@ -159,8 +177,42 @@
 }
 
 @media (max-width: 480px) {
+  .funnel-3d-container {
+    padding: 5px;
+    width: 100%;
+    min-height: 100%;
+    margin-bottom: 20px;
+  }
+
+  .funnel-3d-wrapper {
+    width: 100%;
+    max-width: 100%;
+  }
+
   .funnel-3d-svg {
-    transform: scale(0.6);
+    width: 100%;
+    max-width: 100%;
+    transform: none;
+    min-height: 300px;
+  }
+
+  .lost-profit-counter {
+    width: 100%;
+    max-width: 100%;
+    padding: 15px;
+    margin-top: -40px;
+  }
+
+  .lost-profit-label {
+    font-size: 14px;
+  }
+
+  .lost-profit-value {
+    font-size: 32px;
+  }
+
+  .lost-profit-description {
+    font-size: 11px;
   }
 }
 
