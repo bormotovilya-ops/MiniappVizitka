@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
+import { motion } from 'framer-motion'
 import Header from './Header'
+import Funnel3D from './Funnel3D'
 import './Diagnostics.css'
 
 const stages = [
@@ -34,16 +36,16 @@ const stages = [
     question: 'Сформулирован ли твой продукт так, что понятно: какую конкретную трансформацию получает клиент и за что он платит?'
   },
   {
-    id: 'money',
-    name: 'Деньги',
-    image: '/images/6_оплата.png',
-    question: 'Понимаешь ли ты, откуда именно в системе появляются деньги, и можешь ли ты управлять этой цифрой (конверсии, чеки, повторные продажи)?'
-  },
-  {
     id: 'value',
     name: 'Ценность продукта',
     image: '/images/7_ценность.png',
     question: 'Насколько твой продукт даёт реальную ценность, ради которой клиент готов расстаться с деньгами без уговоров и давления?'
+  },
+  {
+    id: 'money',
+    name: 'Деньги',
+    image: '/images/6_оплата.png',
+    question: 'Понимаешь ли ты, откуда именно в системе появляются деньги, и можешь ли ты управлять этой цифрой (конверсии, чеки, повторные продажи)?'
   }
 ]
 
@@ -242,39 +244,8 @@ function Diagnostics({ onBack, onAvatarClick }) {
           <div className="diagnostics-results-content">
             <h1 className="diagnostics-results-title">Результаты диагностики</h1>
             
-            {/* Визуализация воронки */}
-            <div className="funnel-visualization">
-              {results.map((result, index) => {
-                const status = getScoreStatus(result.score)
-                const color = getScoreColor(result.score)
-                
-                return (
-                  <div key={result.id} className={`funnel-stage-result ${status}`}>
-                    <div className="funnel-stage-header">
-                      <img src={result.image} alt={result.name} className="funnel-stage-image" />
-                      <div className="funnel-stage-info">
-                        <h3 className="funnel-stage-name">{result.name}</h3>
-                        <div className="funnel-stage-score" style={{ color }}>
-                          {result.score} баллов
-                        </div>
-                      </div>
-                    </div>
-                    <div className="funnel-stage-bar">
-                      <div 
-                        className="funnel-stage-bar-fill" 
-                        style={{ 
-                          width: `${result.score}%`,
-                          backgroundColor: color
-                        }}
-                      />
-                    </div>
-                    <p className="funnel-stage-recommendation">
-                      {getRecommendation(result.score)}
-                    </p>
-                  </div>
-                )
-              })}
-            </div>
+            {/* 3D Воронка */}
+            <Funnel3D results={results} />
 
             {/* Текстовый блок с анализом */}
             <div className="diagnostics-analysis">
@@ -314,10 +285,38 @@ function Diagnostics({ onBack, onAvatarClick }) {
               </p>
             </div>
 
-            {/* Кнопка консультации */}
+            {/* Финальный блок перед CTA */}
+            <motion.div 
+              className="diagnostics-final-block"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 2.5, duration: 0.6 }}
+            >
+              <h2 className="final-block-title">Готовы улучшить свою воронку?</h2>
+              <p className="final-block-text">
+                Давайте обсудим результаты диагностики и сформируем конкретный план действий для устранения узких мест и увеличения прибыли.
+              </p>
+              <div className="final-block-benefits">
+                <div className="benefit-item">
+                  <span className="benefit-icon">✓</span>
+                  <span>Анализ текущей ситуации</span>
+                </div>
+                <div className="benefit-item">
+                  <span className="benefit-icon">✓</span>
+                  <span>План улучшений</span>
+                </div>
+                <div className="benefit-item">
+                  <span className="benefit-icon">✓</span>
+                  <span>Внедрение инструментов</span>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* CTA кнопка */}
             <div className="diagnostics-consultation">
-              <button className="diagnostics-consultation-btn" onClick={handleResultsConsultation}>
-                Получить консультацию по результатам
+              <button className="diagnostics-consultation-btn diagnostics-fix-btn" onClick={handleResultsConsultation}>
+                <span className="btn-glow"></span>
+                Обсудить результаты и улучшения
               </button>
             </div>
           </div>
@@ -351,12 +350,14 @@ function Diagnostics({ onBack, onAvatarClick }) {
         </div>
 
         <div className="question-content">
-          <div className="question-stage">
-            <img src={currentStage.image} alt={currentStage.name} className="question-stage-image" />
-            <h2 className="question-stage-name">{currentStage.name}</h2>
+          <div className="question-content-wrapper">
+            <div className="question-stage">
+              <img src={currentStage.image} alt={currentStage.name} className="question-stage-image" />
+              <h2 className="question-stage-name">{currentStage.name}</h2>
+            </div>
+            
+            <h1 className="question-text">{currentStage.question}</h1>
           </div>
-          
-          <h1 className="question-text">{currentStage.question}</h1>
 
           <div className="answer-options">
             {answerOptions.map((option, index) => (
