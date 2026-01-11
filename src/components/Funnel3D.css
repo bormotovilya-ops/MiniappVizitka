@@ -4,7 +4,7 @@
   flex-direction: column;
   align-items: center;
   gap: 7px;
-  padding: 13px 7px;
+  padding: 10px 7px 0 7px;
   background: #000;
   border-radius: 20px;
   margin-bottom: 40px;
@@ -32,7 +32,7 @@
   max-width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   position: relative;
   z-index: 1;
   overflow: visible;
@@ -43,11 +43,11 @@
   width: 100%;
   max-width: 1000px;
   height: auto;
-  min-height: 800px;
   filter: drop-shadow(0 0 20px rgba(0, 255, 136, 0.3));
   overflow: visible;
   display: block;
   box-sizing: border-box;
+  vertical-align: top;
 }
 
 .funnel-info-group {
@@ -123,12 +123,13 @@
     width: 100%;
     transform: none;
     transform-origin: top center;
+    vertical-align: top;
   }
 }
 
 @media (max-width: 768px) {
   .funnel-3d-container {
-    padding: 13px 7px;
+    padding: 5px 7px 0 7px;
     gap: 5px;
     width: 100%;
     min-height: 100%;
@@ -146,6 +147,7 @@
     height: auto;
     transform: none;
     transform-origin: top center;
+    vertical-align: top;
   }
 
   .funnel-segment-label {
@@ -161,6 +163,9 @@
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
+    animation: pulse-glow 3s ease-in-out infinite;
+    box-shadow: 0 4px 20px rgba(255, 68, 68, 0.3);
+    margin-top: 20px;
   }
 
   .lost-profit-label {
@@ -178,7 +183,7 @@
 
 @media (max-width: 480px) {
   .funnel-3d-container {
-    padding: 13px 7px;
+    padding: 5px 7px 0 7px;
     width: 100%;
     min-height: 100%;
     margin-bottom: 20px;
@@ -193,7 +198,7 @@
     width: 100%;
     max-width: 100%;
     transform: none;
-    min-height: 600px;
+    vertical-align: top;
   }
 
   .lost-profit-counter {
@@ -201,6 +206,8 @@
     max-width: 100%;
     padding: 15px;
     margin-top: 20px;
+    animation: pulse-glow 3s ease-in-out infinite;
+    box-shadow: 0 4px 20px rgba(255, 68, 68, 0.3);
   }
 
   .lost-profit-label {

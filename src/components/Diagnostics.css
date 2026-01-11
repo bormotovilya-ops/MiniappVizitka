@@ -1260,8 +1260,8 @@
   }
 
   .question-message {
-    padding: 8px 12px;
-    max-width: 60%;
+    padding: 10px 14px;
+    max-width: 65%;
     margin-left: 10px;
     border-radius: 8px;
   }
@@ -1310,10 +1310,10 @@
   }
   
   .answer-message.poll-option {
-    width: 60%;
+    width: 65%;
     min-width: 0;
-    max-width: 60%;
-    padding: 8px 12px;
+    max-width: 65%;
+    padding: 10px 14px;
     margin-right: 14px !important;
     border-radius: 8px;
   }
