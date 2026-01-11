@@ -3,6 +3,14 @@ import { motion } from 'framer-motion'
 import './Funnel3D.css'
 
 const Funnel3D = ({ results }) => {
+  // Состояние для отслеживания ошибок загрузки изображений
+  const [imageErrors, setImageErrors] = useState({})
+
+  // Обработчик ошибок загрузки изображений
+  const handleImageError = (segmentId) => {
+    setImageErrors(prev => ({ ...prev, [segmentId]: true }))
+  }
+
   // Все 6 сегментов воронки
   const segments = useMemo(() => {
     const segmentMap = {
@@ -159,7 +167,9 @@ const Funnel3D = ({ results }) => {
 
   // Позиции и размеры
   const segmentHeight = 180 // Увеличена в 2 раза
-  const totalHeight = 50 + segments.length * segmentHeight + 20
+  const topPadding = 10 // Верхний отступ (минимальный)
+  const bottomPadding = 0 // Нижний отступ = 0 (заканчивается внизу)
+  const totalHeight = topPadding + segments.length * segmentHeight + bottomPadding
 
   // Проверка на пустые данные
   if (!results || results.length === 0 || !segmentWidths || segmentWidths.length === 0) {
@@ -182,7 +192,7 @@ const Funnel3D = ({ results }) => {
           height={totalHeight} 
           viewBox={`0 0 1000 ${totalHeight}`}
           className="funnel-3d-svg"
-          preserveAspectRatio="xMidYMid meet"
+          preserveAspectRatio="xMidYMin meet"
         >
           <defs>
             {/* Градиенты для glassmorphism */}
@@ -213,16 +223,17 @@ const Funnel3D = ({ results }) => {
 
           {/* Рендерим сегменты воронки */}
           {segments.map((segment, index) => {
-            const { topWidth, bottomWidth, height, score, isCritical } = segmentWidths[index]
-            const yOffset = 50 + index * height
+            const { topWidth, bottomWidth, height, score } = segmentWidths[index]
+            const yOffset = topPadding + index * height
             const centerX = 500
             
-            // Определяем цвет границы
-            let borderColor = '#00ff88' // Зеленый по умолчанию
-            if (isCritical || score < 40) {
-              borderColor = '#ff4444' // Красный для критических
-            } else if (score < 80) {
-              borderColor = '#ffaa00' // Оранжевый для средних
+            // Определяем цвет границы (пороги должны совпадать с Diagnostics.jsx)
+            // Критический ≤30%, нестабильный 30-70%, сильный ≥70%
+            let borderColor = '#00ff88' // Зеленый по умолчанию (сильный ≥70%)
+            if (score <= 30) {
+              borderColor = '#ff4444' // Красный для критических (≤30%)
+            } else if (score < 70) {
+              borderColor = '#ffaa00' // Оранжевый для нестабильных (30-70%)
             }
             
             // Идеальный path для анимации
@@ -238,15 +249,15 @@ const Funnel3D = ({ results }) => {
                   fill={`url(#gradient-${index})`}
                   stroke={borderColor}
                   strokeWidth="3"
-                  filter={isCritical ? "url(#glow-red)" : "url(#glow)"}
+                  filter={score <= 30 ? "url(#glow-red)" : "url(#glow)"}
                   initial={{ d: idealPath }}
                   animate={{ 
                     d: realPath,
-                    stroke: isCritical ? ['#ff4444', '#ff0000', '#ff4444'] : borderColor
+                    stroke: score <= 30 ? ['#ff4444', '#ff0000', '#ff4444'] : borderColor
                   }}
                   transition={{ 
                     d: { duration: 1.5, ease: "easeInOut", delay: index * 0.15 },
-                    stroke: isCritical ? { duration: 2, repeat: Infinity, ease: "easeInOut" } : {}
+                    stroke: score <= 30 ? { duration: 2, repeat: Infinity, ease: "easeInOut" } : {}
                   }}
                   style={{
                     backdropFilter: 'blur(20px)',
@@ -257,7 +268,7 @@ const Funnel3D = ({ results }) => {
                 {/* Инфографика ВНУТРИ воронки - картинка, название и процент */}
                 <g className="funnel-info-group">
                   {/* Картинка этапа */}
-                  {segment.image && (
+                  {segment.image && !imageErrors[segment.id] && (
                     <foreignObject
                       x={centerX - 60}
                       y={yOffset + 16}
@@ -274,6 +285,8 @@ const Funnel3D = ({ results }) => {
                         <img
                           src={segment.image}
                           alt={segment.name}
+                          onError={() => handleImageError(segment.id)}
+                          loading="lazy"
                           style={{
                             maxWidth: '100%',
                             maxHeight: '100%',
@@ -320,24 +333,24 @@ const Funnel3D = ({ results }) => {
         </svg>
       </div>
 
-      {/* Счетчик упущенной прибыли */}
+      {/* Блок потенциала роста прибыли */}
       <motion.div 
         className="lost-profit-counter"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 2, duration: 0.5 }}
       >
-        <div className="lost-profit-label">Упущенная прибыль</div>
+        <div className="lost-profit-label">Потенциал роста прибыли</div>
         <motion.div 
           className="lost-profit-value"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 2.5, duration: 0.5 }}
         >
-          {displayedProfit.toLocaleString('ru-RU', { minimumFractionDigits: 1, maximumFractionDigits: 1 })}×
+          в {displayedProfit.toLocaleString('ru-RU', { minimumFractionDigits: 1, maximumFractionDigits: 1 })} раз
         </motion.div>
         <div className="lost-profit-description">
-          Во сколько раз больше могли бы заработать в идеальном случае
+          При оптимизации всех этапов воронки
         </div>
       </motion.div>
     </div>
