@@ -192,6 +192,7 @@
   margin: 0;
   gap: 8px;
   justify-content: flex-start;
+  position: relative;
 }
 
 .question-content-wrapper {
@@ -405,7 +406,7 @@
   opacity: 1;
   transform: translateX(0);
   flex-shrink: 0;
-  max-width: 75%;
+  max-width: 60%;
   overflow: visible;
   margin-top: 0;
 }
@@ -421,22 +422,23 @@
   line-height: 1;
   pointer-events: none;
   display: inline-block;
-  opacity: 0.3;
+  opacity: 0.8;
+  filter: drop-shadow(0 0 4px currentColor);
 }
 
 .message-arrow-left {
   left: -16px;
-  color: rgba(92, 184, 92, 0.4);
+  color: rgba(92, 184, 92, 0.9);
 }
 
 .message-arrow-right {
   right: -16px;
-  color: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .answer-message.poll-option.selected .message-arrow-right {
-  color: rgba(51, 144, 236, 0.4);
-  opacity: 0.35;
+  color: rgba(51, 144, 236, 0.95);
+  opacity: 0.9;
 }
 
 .question-message p {
@@ -460,13 +462,17 @@
   padding: 0;
   margin: 0;
   margin-bottom: 0;
-  width: 100%;
-  max-width: 100%;
+  position: absolute;
+  top: 200px;
+  right: 10px;
+  left: 10px;
+  width: calc(100% - 20px);
+  max-width: 800px;
   box-sizing: border-box;
 }
 
 .answer-message.poll-option {
-  width: 75%;
+  width: 60%;
   min-width: 250px;
   padding: 10px 14px;
   background: rgba(255, 255, 255, 0.1);
@@ -1190,16 +1196,11 @@
     gap: 8px;
     max-width: 100%;
     justify-content: flex-start;
+    position: relative;
   }
   
   .question-content-wrapper {
     gap: 6px;
-  }
-  
-  .answer-options {
-    padding: 0;
-    margin: 0;
-    gap: 1px;
   }
 
   .diagnostics-progress {
@@ -1260,7 +1261,7 @@
 
   .question-message {
     padding: 8px 12px;
-    max-width: 85%;
+    max-width: 60%;
     margin-left: 10px;
     border-radius: 8px;
   }
@@ -1269,22 +1270,23 @@
     transform: translateY(-50%) scaleX(0.5) scaleY(1.6) !important;
     font-size: 18px !important;
     line-height: 1 !important;
-    opacity: 0.3 !important;
+    opacity: 0.8 !important;
+    filter: drop-shadow(0 0 3px currentColor) !important;
   }
   
   .message-arrow-left {
     left: -12px !important;
-    color: rgba(92, 184, 92, 0.4) !important;
+    color: rgba(92, 184, 92, 0.9) !important;
   }
   
   .message-arrow-right {
     right: -12px !important;
-    color: rgba(255, 255, 255, 0.3) !important;
+    color: rgba(255, 255, 255, 0.85) !important;
   }
   
   .answer-message.poll-option.selected .message-arrow-right {
-    color: rgba(51, 144, 236, 0.4) !important;
-    opacity: 0.35 !important;
+    color: rgba(51, 144, 236, 0.95) !important;
+    opacity: 0.9 !important;
   }
   
   .poll-checkmark {
@@ -1301,13 +1303,16 @@
 
   .answer-options {
     gap: 1px;
-    margin-top: 0;
+    top: 180px;
+    right: 12px;
+    left: 12px;
+    width: calc(100% - 24px);
   }
   
   .answer-message.poll-option {
-    width: 85%;
+    width: 60%;
     min-width: 0;
-    max-width: 85%;
+    max-width: 60%;
     padding: 8px 12px;
     margin-right: 14px !important;
     border-radius: 8px;
