@@ -647,7 +647,7 @@ function Diagnostics({ onBack, onAvatarClick }) {
             <div className="diagnostics-consultation">
               <button className="diagnostics-consultation-btn diagnostics-fix-btn" onClick={handleResultsConsultation}>
                 <span className="btn-glow"></span>
-                Обсудить результаты и улучшения
+                Получить решение
               </button>
             </div>
           </div>
